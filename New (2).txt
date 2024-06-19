@@ -640,7 +640,7 @@ function Update:Window(text,logo,keybind)
         ImageButton.BorderSizePixel = 0
         ImageButton.Position = UDim2.new(0, 350, 0, 6)
         ImageButton.Size = UDim2.new(0, 20, 0, 20)
-        ImageButton.Image = "rbxassetid://17468818382"
+        ImageButton.Image = "rbxassetid://17851124858"
         ImageButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         UICorner_2.CornerRadius = UDim.new(0, 5)
@@ -750,7 +750,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 5, 0, 6)
         ImageLabel.Size = UDim2.new(0, 20, 0, 20)
-        ImageLabel.Image = "rbxassetid://17468818382"
+        ImageLabel.Image = "rbxassetid://17851124858"
         ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         Space.Name = "Space"
@@ -1106,7 +1106,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
         ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-        ImageLabel.Image = "rbxassetid://17468818382"
+        ImageLabel.Image = "rbxassetid://17851124858"
             
         Title.Parent = SliderFrame_2
         Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
@@ -3829,11 +3829,11 @@ end)
 
 
 local Library = Update:Window("X-Sea Hub [40%]","");
-local H = Library:AddTab("Info","12950870585")
-local Main = Library:AddTab("General","6026568198")
+local H = Library:AddTab("upd","")
+local Main = Library:AddTab("Homepage","6026568198")
 local Sub = Library:AddTab("Sub Farming","9606626859")
 local N = Library:AddTab("Settings","10734950309")
-local Sea = Library:AddTab(" Sea Event","10709761530")
+local Sea = Library:AddTab("Sea Event","10709761530")
 local RaceV4 = Library:AddTab("Race","10747372167")
 local R = Library:AddTab("Dungeon","7044284832")
 local P = Library:AddTab("Combat","7251993295")
@@ -4014,7 +4014,7 @@ spawn(function()
                                                     AutoHaki()                                            
                                                     PosMon = v.HumanoidRootPart.CFrame
                                                     MonFarm = v.Name
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                     topos(v.HumanoidRootPart.CFrame * Pos)
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Humanoid.WalkSpeed = 0
@@ -4022,7 +4022,7 @@ spawn(function()
                                                     v.HumanoidRootPart.Size = Vector3.new(70,70,70)
                                                     AttackNoCD()
                                                 until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                                StartBring = false
+                                                StartMagnet = false
                                             end
                                         end
                                     end
@@ -4046,7 +4046,7 @@ spawn(function()
                                     if v.Name then
                                         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 5000 then
                                         repeat wait(_G.FastAttackDelay)
-                                        StartBring = true
+                                        StartMagnet = true
                                         AttackNoCD()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
@@ -4060,7 +4060,7 @@ spawn(function()
                                         MonFarm = v.Name
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                         until not _G.AutoFarm or not v.Parent or v.Humanoid.Health <= 0 or not game.Workspace.Enemies:FindFirstChild(v.Name)
-                                        StartBring = false
+                                        StartMagnet = false
                                         end
                                     end
                                 end
@@ -4105,11 +4105,11 @@ spawn(function()
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(70,70,70)
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                     MonFarm = v.Name
                                                     AttackNoCD()
                                                 until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                                StartBring = false
+                                                StartMagnet = false
                                             end
                                         end
                                     end
@@ -4159,14 +4159,14 @@ spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
-                                                StartBring = true
+                                                StartMagnet = true
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 MonFarm = v.Name
                                                 v.HumanoidRootPart.Size = Vector3.new(80,80,80)
                                                 TP1(v.HumanoidRootPart.CFrame * Pos)
                                                 AttackNoCD()
                                             until not _G.Farmfast or not v.Parent or v.Humanoid.Health <= 0
-                                            StartBring = false
+                                            StartMagnet = false
                                             TP1(CFrame.new(-7678.48974609375, 5566.40380859375, -497.2156066894531))
                                             UnEquipWeapon(_G.SelectWeapon)
                                         end
@@ -4257,14 +4257,14 @@ end)
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        StartBring = true
+                                        StartMagnet = true
                                         PosMon = v.HumanoidRootPart.CFrame
                                         MonFarm = v.Name
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         AttackNoCD()
                                     until not _G.AutoFarmMob or not v.Parent or v.Humanoid.Health <= 0
-                                    StartBring = false
+                                    StartMagnet = false
                                 end
                             end
                         end
@@ -4594,42 +4594,39 @@ end)
         _G.BringMonster = Mag
     end)
 
-    spawn(function()
-	while task.wait() do
-		pcall(function()
-            CheckQuest()
-			for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-				if _G.BringMonster then
-					if StartBring and v.Name == MonFarm or v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
-						if v.Name == "Factory Staff" then
-							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 5000 then
-								v.Head.CanCollide = false
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-								v.HumanoidRootPart.CFrame = PosMon
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-							end
-						elseif v.Name == MonFarm or v.Name == Mon then
-							if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 4500 then
-                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                v.HumanoidRootPart.CFrame = PosMon
-                                v.HumanoidRootPart.CanCollide = false
-                                v.Head.CanCollide = false
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-							end
-						end
-					end
-				end
-			end
-		end)
-	end
-end)
+spawn(function()
+        while task.wait() do
+            pcall(function()
+                if _G.BringMonster then
+                    CheckQuest()
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
 
 
 function InMyNetWork(object)
@@ -4956,7 +4953,7 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                 if BoneFMode == "No Quest" and _G.Auto_Bone and World3 then
                     pcall(function()
                         if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
-                            StartBring = false
+                            StartMagnet = false
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
                                    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -4966,13 +4963,13 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                             v.HumanoidRootPart.CanCollide = false
                                             v.Humanoid.WalkSpeed = 0
                                             v.Head.CanCollide = false 
-                                            StartBring = true
+                                            StartMagnet = true
                                             PosMon = v.HumanoidRootPart.CFrame
                                             MonFarm = v.Name
                                             topos(v.HumanoidRootPart.CFrame * Pos)
                                             AttackNoCD()
                                         until not _G.Auto_Bone or not v.Parent or v.Humanoid.Health <= 0
-                                        StartBring = false
+                                        StartMagnet = false
                                     end
                                 end
                             end
@@ -5002,11 +4999,11 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                     pcall(function()
                         local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                         if not string.find(QuestTitle, "Demonic Soul") then
-                            StartBring = false
+                            StartMagnet = false
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                         end
                         if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                            StartBring = false
+                            StartMagnet = false
                             if BypassTP then
                             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BoneQuestPos.Position).Magnitude > 1500 then
                             BTP(BoneQuestPos)
@@ -5034,10 +5031,10 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                     AttackNoCD()
                                                 until not _G.Auto_Bone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                                StartBring = false
+                                                StartMagnet = false
                                             end
                                         end
                                     end
@@ -5092,7 +5089,7 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                                     PosMon = v.HumanoidRootPart.CFrame
                                                     AimBotSkillPosition = PosMon.Position
                                                     MonFarm = v.Name
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                     AutoHaki()
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -5100,7 +5097,7 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                                     v.Head.CanCollide = false
                                                     NormalAttack()
                                                 until not _G.Auto_Bone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                                StartBring = false
+                                                StartMagnet = false
                                                 Skillaimbot = false
                                                 UseSkill = false
                                             end
@@ -5222,7 +5219,7 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                             if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                                 repeat task.wait(_G.FastAttackDelay)
                                                     AutoHaki()
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                     EquipWeapon(_G.SelectWeapon)
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Humanoid.WalkSpeed = 0
@@ -5233,7 +5230,7 @@ local ListB = {"No Quest", "Quest", "MasteryFruit"}
                                                     topos(v.HumanoidRootPart.CFrame * Pos)
                                                     AttackNoCD()
                                                 until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") 
-                                                StartBring = false
+                                                StartMagnet = false
                                             end
                                         end
                                     end
@@ -5650,7 +5647,7 @@ end)
                                             v.Humanoid.JumpPower = 0
                                             v.Humanoid.WalkSpeed = 0
                                             v.HumanoidRootPart.CanCollide = false
-                                            StartBring = true
+                                            StartMagnet = true
                                             PosMon = v.HumanoidRootPart.CFrame
                                             MonFarm = v.Name
                                             Click()
@@ -6304,7 +6301,7 @@ end
                                         AttackNoCD()
                                         _G.SeaSkill = false
                                     until not _G.AutoKillFishCrew or not v.Parent or v.Humanoid.Health <= 0
-                                    StartBring = false
+                                    StartMagnet = false
                                     end
                                 end
                             end
@@ -6495,7 +6492,7 @@ end
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                     topos(v.HumanoidRootPart.CFrame * Pos)
                                     AttackNoCD()
-                                    StartBring = true
+                                    StartMagnet = true
                                     MonFarm = v.Name
                                     PosMon = v.HumanoidRootPart.CFrame
                                 until not _G.AutoKillFishCrew or not v.Parent or v.Humanoid.Health <= 0
@@ -7053,9 +7050,9 @@ end
                                                     AttackNoCD()
                                                     PosMon = v.HumanoidRootPart.CFrame
                                                     MonFarm = v.Name
-                                                    StartBring = true
+                                                    StartMagnet = true
                                                 until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 3") or not v.Parent or v.Humanoid.Health <= 0 or _G.Auto_EvoRace == false
-                                                StartBring = false
+                                                StartMagnet = false
                                             end
                                         end
                                     else
@@ -7228,13 +7225,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        StartBring = true
+                                        StartMagnet = true
                                         PosMon = v.HumanoidRootPart.CFrame
                                         MonFarm = v.Name
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         AttackNoCD()
                                     until not StardFarm or not v.Parent or v.Humanoid.Health <= 0
-                                    StartBring = false
+                                    StartMagnet = false
                                 end
                             end
                         end
