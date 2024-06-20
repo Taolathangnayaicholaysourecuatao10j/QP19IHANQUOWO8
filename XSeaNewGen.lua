@@ -1416,8 +1416,8 @@ local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
 })
 
 DropdownListAttack:SetValue("0.175")
-DropdownListAttack:OnChanged(function(TaiBeoQuaBeo)
-    _G.FastAttackDelay = TaiBeoQuaBeo
+DropdownListAttack:OnChanged(function(Value)
+    _G.FastAttackDelay = Value
 end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
@@ -2764,22 +2764,6 @@ function InfAb()
     end
 end
 
-Tabs.M:AddButton({
-	Title = "Join Pirates Team",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
-	end
-})
-
-
-Tabs.Mi:AddButton({
-	Title = "Join Marines Team",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
-	end
-})
 
 
 local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "Pvp",Default = false })
