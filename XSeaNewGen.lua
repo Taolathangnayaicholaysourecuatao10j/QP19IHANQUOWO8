@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "X-Sea Hub - 40% function",
+    Title = "X-Sea Hub - BF",
     SubTitle = "Release Scirpt (Beta)",
     TabWidth = 155,
     Size = UDim2.fromOffset(450, 300),
@@ -15,6 +15,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
+    Kit = Window:AddTab({ Title = "Kitsune Event", Icon = "" }),
     Player = Window:AddTab({ Title = "Players", Icon = "" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
     Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
@@ -946,7 +947,7 @@ function InstantChooseGear()
         end
         task.wait(300)
     else
-        game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Min Hub", Text = "You Hadn't Gear", Duration = 30})
+        game:GetService("StarterGui"):SetCore("SendNotification", {Title = "X-Sea ", Text = "You Hadn't Gear", Duration = 30})
         task.wait(30)
     end
 end
@@ -1406,17 +1407,17 @@ function BypassTele(PosSelect)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Settings = Tabs.Main:AddSection("Settings")
-local v1f = {"0", "0.15", "0.175", "0.2"}
+local TaiBeo = {"0", "0.15", "0.175", "0.2"}
 local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
     Title = "Select Attack",
-    Values = v1f,
+    Values = TaiBeo,
     Multi = false,
     Default = 1,
 })
 
 DropdownListAttack:SetValue("0.175")
-DropdownListAttack:OnChanged(function(Value)
-    _G.FastAttackDelay = Value
+DropdownListAttack:OnChanged(function(TaiBeoQuaBeo)
+    _G.FastAttackDelay = TaiBeoQuaBeo
 end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
@@ -1611,7 +1612,7 @@ end
 local Settings2 = Tabs.Main:AddSection("Settings2")
 local AsP = {"Low", "Normal", "High"}
 local DropDownBr = Tabs.Main:AddDropdown("DropDownBr", {
-    Title = "Select Attack",
+    Title = "Select Bring Mode",
     Values = AsP,
     Multi = false,
     Default = 1,
@@ -1767,7 +1768,7 @@ end)
 
 local ToggleStartFarm = Tabs.Main:AddToggle("ToggleStartFarm", {
     Title = "Start Farm",
-    Description = "Select To Farm Level or Bone or Cake prince",
+    Description = "Farm Level or Bone or Cake prince",
     Default = false })
 ToggleStartFarm:OnChanged(function(Value)
     StartFarms = Value
@@ -2088,7 +2089,7 @@ spawn(function()
         end
     end
 end)
-local Weapon = Tabs.Main:AddSection("Weapon Farm")
+--local Weapon = Tabs.Main:AddSection("Weapon Farm")
 
 local DropdownSelectWeaponff = Tabs.Main:AddDropdown("DropdownSelectWeaponff", {
     Title = "Select Type Farm",
@@ -2138,7 +2139,7 @@ spawn(function()
     end
 end)
 
-local Bones = Tabs.Main:AddSection("Options")
+--local Bones = Tabs.Main:AddSection("Options")
 
 local ToggleBOnes = Tabs.Main:AddToggle("ToggleBOnes", {
     Title = "Random Suprise",
@@ -2205,7 +2206,7 @@ Dropdown:OnChanged(function(vSelectSkills)
             table.insert(RealSkillSelected, r)
         end
     end
-    Notify("Min Hub", "Skill " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
+    Notify("XSea", "Skill " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
 end)
 
 local ListHealth = {'20','25','30','35','40','45','50'}
@@ -2847,7 +2848,7 @@ spawn(function()
                                 ToTween(Target.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                             end
                         else
-                            Notify("Min Hub", "Not Found Boss, Start Hop", 10)
+                            Notify("XSea", "Not Found Boss, Start Hop", 10)
                             HopServer()
                         end
                     elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress", "Bartilo") == 2 then
@@ -2885,7 +2886,7 @@ spawn(function()
                             RS.Remotes.CommF_:InvokeServer("Alchemist", "2")
                             if not LP.Backpack:FindFirstChild("Flower 1") and not LP.Character:FindFirstChild("Flower 1")then
                                 if WS.Flower1.Transparency ~= 1 then
-                                    Notify("Min Hub", "Collecting Flower 1", 10)
+                                    Notify("XSea", "Collecting Flower 1", 10)
                                     if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 1") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Flower 1") then
                                         ToTween(game:GetService("Workspace").Flower1.CFrame)
                                     else
@@ -2893,13 +2894,13 @@ spawn(function()
                                     end
                                 else
                                     if game.Lighting.ClockTime > 3 and game.Lighting.ClockTime < 16 then
-                                        Notify("Min Hub", "Hop Night", 10)
+                                        Notify("XSea", "Hop Night", 10)
                                         HopServer()
                                     end
                                 end
                             elseif not LP.Backpack:FindFirstChild("Flower 2") and not LP.Character:FindFirstChild("Flower 2") then
                                 if WS.Flower2.Transparency ~= 1 then
-                                    Notify("Min Hub", "Collecting Flower 2", 10)
+                                    Notify("XSea", "Collecting Flower 2", 10)
                                 end
                                 if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 2") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Flower 2") then
                                     ToTween(game:GetService("Workspace").Flower2.CFrame)
@@ -2907,7 +2908,7 @@ spawn(function()
                                     StopTween()
                                 end
                             elseif not LP.Backpack:FindFirstChild("Flower 3") and not LP.Character:FindFirstChild("Flower 3") then
-                                Notify("Min Hub", "Collecting Flower 3", 10)
+                                Notify("XSea", "Collecting Flower 3", 10)
                                 if Enemies:FindFirstChild("Zombie") then
                                     for i,v in pairs(Enemies:GetChildren()) do
                                         if v.Name == "Zombie" then
@@ -2945,9 +2946,9 @@ spawn(function()
                         for r, v in pairs(sk) do
                             sk2 = sk2 .. v .. ","
                         end
-                        Notify("Min Hub", sk2, 15)
+                        Notify("Xsea", sk2, 15)
                         if #sk < 3 and CheckVerRace() == "Human V2" then
-                            Notify("Min Hub", "Hop Server Have 3 Boss", 15)
+                            Notify("Xsea", "Hop Server Have 3 Boss", 15)
                             task.wait(1)
                             HopServer()
                         end
@@ -2955,7 +2956,7 @@ spawn(function()
                             for aq, cg in pairs(BossQuest) do
                                 Notify("Race: ", CheckVerRace())
                                 if cg and CheckVerRace() == "Human V2" then
-                                    Notify("Min Hub", "Start Killing " .. aq .. " Boss To Up Human V3")
+                                    Notify("Xsea", "Start Killing " .. aq .. " Boss To Up Human V3")
                                     Target = ReturnBosses(aq)
                                     repeat wait()
                                         if Target and Enemies:FindFirstChild(Target.Name) and Target:FindFirstChild("Humanoid") and Target:FindFirstChild("HumanoidRootPart") and Target.Humanoid.Health > 0 then
@@ -2993,7 +2994,7 @@ spawn(function()
                                 TargetedPlayer = nil
                             end
                         else
-                            Notify("Min Hub", "Not Found Player, Start Hop", 15)
+                            Notify("Xsea", "Not Found Player, Start Hop", 15)
                             HopServer()
                         end
                     elseif CheckR == "Fishman V2" then
@@ -3029,10 +3030,10 @@ spawn(function()
                         if ch and CheckR ~= "Mink V3" then
                             ToTween(ch)
                             CountChest = CountChest + 1
-                            Notify("Min Hub", "Remaning " .. 30 - CountChest .. " Chest", 7.5)
+                            Notify("SeaX", "Remaning " .. 30 - CountChest .. " Chest", 7.5)
                             if CountChest >= 30 then
                                 UpV3NoTween()
-                                Notify("Min Hub", "Race Status: " .. tostring(RS.Remotes.CommF_:InvokeServer("Wenlocktoad", "info")))
+                                Notify("xSea", "Race Status: " .. tostring(RS.Remotes.CommF_:InvokeServer("Wenlocktoad", "info")))
                             end
                         elseif ch == nil then
                             repeat wait()
@@ -3186,7 +3187,7 @@ spawn(function()
     end
 end)
 
-local Section = Tabs.Race:AddSection("Temple Of Time & Mirage Island")
+--local Section = Tabs.Race:AddSection("Temple Of Time & Mirage Island")
 
 Tabs.Race:AddButton({
     Title = "Teleport Temple Of Time",
@@ -3285,9 +3286,9 @@ Loop:Connect(function()
     end
 end)
 
-local Section = Tabs.Race:AddSection("Kitsune Update")
+--local Section = Tabs.Race:AddSection("Kitsune Update")
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
+local Toggle = Tabs.Kit:AddToggle("Toggle", {
     Title = "Tween to Kitsune Island",
     Description = "", 
     Default = false })
@@ -3320,8 +3321,8 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Farm Azure Amber",
+local Toggle = Tabs.Kit:AddToggle("Toggle", {
+    Title = "pick Azu Ember",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3406,7 +3407,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Quest Sea Events",
+    Title = "Auto Farm Sea Events",
     Description = "(One Click)", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3650,7 +3651,7 @@ end)
 Slider:SetValue(4000)
 
 local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Low Health Y Tween",
+    Title = "Low Hp To Hide (Sea Event)",
     Description = "", 
     Default = true })
     Toggle:OnChanged(function(Value)
