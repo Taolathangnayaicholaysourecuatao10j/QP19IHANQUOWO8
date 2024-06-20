@@ -7,7 +7,7 @@ local Window = Fluent:CreateWindow({
     SubTitle = "Release Scirpt (Beta)",
     TabWidth = 155,
     Size = UDim2.fromOffset(490, 350),
-    Acrylic = true,
+    Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.RightControl
 })
@@ -1550,7 +1550,7 @@ spawn(function()
 	end)
 end)
 
-local BringMe= Tabs.Main:AddToggle("BringMe", {
+local BringMe = Tabs.Main:AddToggle("BringMe", {
     Title = "Bring Monster",
     Description = "",
     Default = true })
@@ -1609,7 +1609,7 @@ function InMyNetWork(object)
 end
 
 
-local Settings2 = Tabs.Main:AddSection("Settings2")
+
 local AsP = {"Low", "Normal", "High"}
 local DropDownBr = Tabs.Main:AddDropdown("DropDownBr", {
     Title = "Select Bring Mode",
@@ -1723,7 +1723,7 @@ ToggleWhiteScreen:OnChanged(function(Value)
 end)
 Options.ToggleWhiteScreen:SetValue(false)
 ----------------------------------------------------------------------------------------------------------------------------------------
-local Farm = Tabs.Main:AddSection("Farming")
+
 Tabs.Main:AddButton({
     Title = "Redeem Code X2",
     Description = "",
@@ -1756,7 +1756,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 local DropdownSelectFarm = Tabs.Main:AddDropdown("DropdownSelectFarm", {
-    Title = "Select Mode Farm",
+    Title = "Mode Farm!",
     Values = {"Level", "Bone", "Cake Prince"},
     Multi = false,
     Default = 1,
@@ -1767,8 +1767,8 @@ DropdownSelectFarm:OnChanged(function(Value)
 end)
 
 local ToggleStartFarm = Tabs.Main:AddToggle("ToggleStartFarm", {
-    Title = "Start Farm",
-    Description = "Farm Level or Bone or Cake prince",
+    Title = "Start Auto Farm",
+    Description = "Farm Level & Bone & Cake prince",
     Default = false })
 ToggleStartFarm:OnChanged(function(Value)
     StartFarms = Value
@@ -2002,7 +2002,7 @@ spawn(function()
         end
     end
 end)
-local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
+--[[local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
     Title = "Auto Start Farm (Level 1-300)",
     Description = "",
     Default = false })
@@ -2088,11 +2088,11 @@ spawn(function()
             end
         end
     end
-end)
+end) --]]
 --local Weapon = Tabs.Main:AddSection("Weapon Farm")
 
 local DropdownSelectWeaponff = Tabs.Main:AddDropdown("DropdownSelectWeaponff", {
-    Title = "Select Type Farm",
+    Title = "Farm Mastery Mode",
     Values = {"Cake Prince", "Bone"},
     Multi = false,
     Default = 1,
@@ -2104,7 +2104,7 @@ end)
 
 local Togglesword600mas = Tabs.Main:AddToggle("Togglesword600mas", {
     Title = "Farm All Sword 600 Mastery",
-    Description = "", 
+    Description = "Select Farm Mastery Mode To farm", 
     Default = false })
     Togglesword600mas:OnChanged(function(Value)
         sword600mas = Value
@@ -2675,7 +2675,7 @@ function AttackNoCoolDown()
     end
 end
 
-local Section = Tabs.Player:AddSection("Misc")
+
 
 local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "No Clip",Description = "", Default = false })
 ToggleNoClip:OnChanged(function(value)
@@ -2764,6 +2764,22 @@ function InfAb()
     end
 end
 
+Tabs.M:AddButton({
+	Title = "Join Pirates Team",
+	Description = "",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
+	end
+})
+
+
+Tabs.Mi:AddButton({
+	Title = "Join Marines Team",
+	Description = "",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
+	end
+})
 
 
 local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "Pvp",Default = false })
@@ -2784,7 +2800,7 @@ spawn(function()
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
 --RaceV4
-local Section = Tabs.Race:AddSection("Race V2-V3")
+
 
 local Toggle = Tabs.Race:AddToggle("Toggle", {
     Title = "Upgrade Race V2-V3s",
@@ -3053,7 +3069,6 @@ spawn(function()
     end         
 end)
 
-local Section = Tabs.Race:AddSection("Race V4")
 
 local Toggle = Tabs.Race:AddToggle("Toggle", {
     Title = "Finish Trial Race",
@@ -3635,9 +3650,8 @@ spawn(function()
     end       
 end)
 
-local Section = Tabs.Race:AddSection("Low Health")
 
-local Slider = Tabs.Race:AddSlider("Slider", {
+local Slider = Tabs.Sea:AddSlider("Slider", {
 	Title = "Set Low Health",
 	Description = "",
 	Default = 4000,
@@ -3653,7 +3667,7 @@ Slider:OnChanged(function(Value)
 end)
 Slider:SetValue(4000)
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
+local Toggle = Tabs.Sea:AddToggle("Toggle", {
     Title = "Low Hp To Hide (Sea Event)",
     Description = "", 
     Default = true })
@@ -3662,10 +3676,10 @@ local Toggle = Tabs.Race:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(true)
 
-local Section = Tabs.Race:AddSection("Spam Skill")
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Spam Melee",
+
+local Toggle = Tabs.Sea:AddToggle("Toggle", {
+    Title = "Use Mele",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3673,8 +3687,8 @@ local Toggle = Tabs.Race:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Spam Sword",
+local Toggle = Tabs.Sea:AddToggle("Toggle", {
+    Title = "Using Sword",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3682,8 +3696,8 @@ local Toggle = Tabs.Race:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Spam Gun",
+local Toggle = Tabs.Sea:AddToggle("Toggle", {
+    Title = "Use Gun",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3691,8 +3705,8 @@ local Toggle = Tabs.Race:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Race:AddToggle("Toggle", {
-    Title = "Spam Devil Fruit",
+local Toggle = Tabs.Sea:AddToggle("Toggle", {
+    Title = "Use Devil Fruit",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -4020,7 +4034,7 @@ spawn(function()
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
-local Teleport = Tabs.Teleport:AddSection("Teleport World")
+
 Tabs.Teleport:AddButton({
     Title = "First Sea",
     Description = "Sea 1",
