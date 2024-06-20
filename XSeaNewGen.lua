@@ -6,22 +6,22 @@ local Window = Fluent:CreateWindow({
     Title = "X-Sea Hub - BF",
     SubTitle = "Release Scirpt (Beta)",
     TabWidth = 155,
-    Size = UDim2.fromOffset(550, 340),
-    Acrylic = true,
+    Size = UDim2.fromOffset(490, 350),
+    Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
-    Kit = Window:AddTab({ Title = "Kitsune Event", Icon = "" }),
-    Player = Window:AddTab({ Title = "Players", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "" }),
-    S = Window:AddTab({ Title = "Shops", Icon = "" }),
-    M = Window:AddTab({ Title = "Miscs", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main🏘️", Icon = "" }),
+    Sea = Window:AddTab({ Title = "Sea Event🦈", Icon = "" }),
+    Stats = Window:AddTab({ Title = "Stats player 📊", Icon = "" }),
+    Kit = Window:AddTab({ Title = "Kitsune Event🦊", Icon = "" }),
+    Player = Window:AddTab({ Title = "Players👾", Icon = "" }),
+    Teleport = Window:AddTab({ Title = "Teleport🏝️", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Raid🤺", Icon = "" }),
+    Race = Window:AddTab({ Title = "Race V4⏳", Icon = "" }),
+    S = Window:AddTab({ Title = "Shops💶", Icon = "" }),
+    M = Window:AddTab({ Title = "Miscs🎗️", Icon = "" }),
 }
 local Options = Fluent.Options
 do
@@ -2763,6 +2763,25 @@ function InfAb()
         end
     end
 end
+
+Tabs.M:AddButton({
+	Title = "Join Pirates Team",
+	Description = "",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
+	end
+})
+
+
+Tabs.Mi:AddButton({
+	Title = "Join Marines Team",
+	Description = "",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
+	end
+})
+
+
 local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "Pvp",Default = false })
 ToggleEnablePvp:OnChanged(function(Value)
   getgenv().EnabledPvP = Value
