@@ -12,6 +12,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
+    Info = Window:AddTab({ Title = "Update & Info📋", Icon = "" }),
     Main = Window:AddTab({ Title = "Main🏘️", Icon = "" }),
     Sea = Window:AddTab({ Title = "Sea Event🦈", Icon = "" }),
     Stats = Window:AddTab({ Title = "Stats player 📊", Icon = "" }),
@@ -1405,7 +1406,28 @@ function BypassTele(PosSelect)
         end
     end
 end
-----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+    Tabs.Info:AddParagraph({
+        Title = "Owner: TDuy",
+        Content = "Developer: Tai"
+    })
+
+    Tabs.Info:AddParagraph({
+        Title = "Versions Beta ",
+        Content = ""
+    })
+
+    Tabs.Info:AddParagraph({
+        Title = "[-] Fix Not see All Tabs",
+        Content = ""
+    })
+
+    Tabs.Info:AddParagraph({
+        Title = "[+] Add One click Sea Event ",
+        Content = "[-] Fix Not Farm Select"
+    })
+
 local Settings = Tabs.Main:AddSection("Settings")
 local TaiBeo = {"0", "0.15", "0.175", "0.2"}
 local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
