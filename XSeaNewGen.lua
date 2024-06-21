@@ -6,9 +6,9 @@ local Window = Fluent:CreateWindow({
     Title = "X-Sea Hub",
     SubTitle = "Release (Beta)",
     TabWidth = 155,
-    Size = UDim2.fromOffset(500, 350),
+    Size = UDim2.fromOffset(490, 350),
     Acrylic = true,
-    Theme = "Dark",
+    Theme = "Light",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
