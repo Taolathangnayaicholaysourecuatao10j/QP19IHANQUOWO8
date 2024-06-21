@@ -7,22 +7,22 @@ local Window = Fluent:CreateWindow({
     SubTitle = "Release Scirpt (Beta)",
     TabWidth = 155,
     Size = UDim2.fromOffset(490, 350),
-    Acrylic = true,
+    Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
-    Info = Window:AddTab({ Title = "Update & Info📋", Icon = "" }),
-    Main = Window:AddTab({ Title = "Main🏘️", Icon = "" }),
-    Sea = Window:AddTab({ Title = "Sea Event🦈", Icon = "" }),
-    Stats = Window:AddTab({ Title = "Stats player 📊", Icon = "" }),
-    Kit = Window:AddTab({ Title = "Kitsune Event🦊", Icon = "" }),
-    Player = Window:AddTab({ Title = "Players👾", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "Teleport🏝️", Icon = "" }),
-    Raid = Window:AddTab({ Title = "Raid🤺", Icon = "" }),
-    Race = Window:AddTab({ Title = "Race V4⏳", Icon = "" }),
-    S = Window:AddTab({ Title = "Shops💶", Icon = "" }),
-    M = Window:AddTab({ Title = "Miscs🎗️", Icon = "" }),
+    Info = Window:AddTab({ Title = "Update & Info", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
+    Stats = Window:AddTab({ Title = "Stats player ", Icon = "" }),
+    Kit = Window:AddTab({ Title = "Kitsune Event", Icon = "" }),
+    Player = Window:AddTab({ Title = "Players", Icon = "" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
+    Race = Window:AddTab({ Title = "Race V4", Icon = "" }),
+    S = Window:AddTab({ Title = "Shops", Icon = "" }),
+    M = Window:AddTab({ Title = "Miscs", Icon = "" }),
 }
 local Options = Fluent.Options
 do
