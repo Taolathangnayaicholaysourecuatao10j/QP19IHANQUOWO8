@@ -3,19 +3,19 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "X-Sea Hub - BF",
+    Title = "X-Sea Hub - !",
     SubTitle = "Release Scirpt (Beta)",
     TabWidth = 155,
-    Size = UDim2.fromOffset(490, 350),
-    Acrylic = false,
+    Size = UDim2.fromOffset(450, 300),
+    Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
-    Stats = Window:AddTab({ Title = "Stats player ", Icon = "" }),
-    Kit = Window:AddTab({ Title = "Kitsune Event", Icon = "" }),
+    kit = Window:AddTab({ Title = "Kitsune Event", Icon = "" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
     Player = Window:AddTab({ Title = "Players", Icon = "" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
     Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
@@ -947,7 +947,7 @@ function InstantChooseGear()
         end
         task.wait(300)
     else
-        game:GetService("StarterGui"):SetCore("SendNotification", {Title = "X-Sea ", Text = "You Hadn't Gear", Duration = 30})
+        game:GetService("StarterGui"):SetCore("SendNotification", {Title = "X-Sea", Text = "You Hadn't Gear", Duration = 30})
         task.wait(30)
     end
 end
@@ -1407,10 +1407,10 @@ function BypassTele(PosSelect)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Settings = Tabs.Main:AddSection("Settings")
-local Aps = {"0", "0.15", "0.175", "0.2"}
+local v1f = {"0", "0.15", "0.175", "0.2"}
 local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
     Title = "Select Attack",
-    Values = Aps,
+    Values = v1f,
     Multi = false,
     Default = 1,
 })
@@ -1550,7 +1550,7 @@ spawn(function()
 	end)
 end)
 
-local BringMe = Tabs.Main:AddToggle("BringMe", {
+local BringMe= Tabs.Main:AddToggle("BringMe", {
     Title = "Bring Monster",
     Description = "",
     Default = true })
@@ -1609,10 +1609,10 @@ function InMyNetWork(object)
 end
 
 
-
+local Settings2 = Tabs.Main:AddSection("Settings2")
 local AsP = {"Low", "Normal", "High"}
 local DropDownBr = Tabs.Main:AddDropdown("DropDownBr", {
-    Title = "Select Bring Mode",
+    Title = "Select Attack",
     Values = AsP,
     Multi = false,
     Default = 1,
@@ -1723,7 +1723,7 @@ ToggleWhiteScreen:OnChanged(function(Value)
 end)
 Options.ToggleWhiteScreen:SetValue(false)
 ----------------------------------------------------------------------------------------------------------------------------------------
-
+local Farm = Tabs.Main:AddSection("Farming")
 Tabs.Main:AddButton({
     Title = "Redeem Code X2",
     Description = "",
@@ -1756,7 +1756,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 local DropdownSelectFarm = Tabs.Main:AddDropdown("DropdownSelectFarm", {
-    Title = "Mode Farm!",
+    Title = "Select Mode Farm",
     Values = {"Level", "Bone", "Cake Prince"},
     Multi = false,
     Default = 1,
@@ -1767,8 +1767,8 @@ DropdownSelectFarm:OnChanged(function(Value)
 end)
 
 local ToggleStartFarm = Tabs.Main:AddToggle("ToggleStartFarm", {
-    Title = "Start Auto Farm",
-    Description = "Farm Level & Bone & Cake prince",
+    Title = "Start Farm",
+    Description = "Select To Farm Level or Bone or Cake prince",
     Default = false })
 ToggleStartFarm:OnChanged(function(Value)
     StartFarms = Value
@@ -2089,10 +2089,11 @@ spawn(function()
         end
     end
 end) --]]
+
 --local Weapon = Tabs.Main:AddSection("Weapon Farm")
 
 local DropdownSelectWeaponff = Tabs.Main:AddDropdown("DropdownSelectWeaponff", {
-    Title = "Farm Mastery Mode",
+    Title = "Select Type Farm",
     Values = {"Cake Prince", "Bone"},
     Multi = false,
     Default = 1,
@@ -2104,7 +2105,7 @@ end)
 
 local Togglesword600mas = Tabs.Main:AddToggle("Togglesword600mas", {
     Title = "Farm All Sword 600 Mastery",
-    Description = "Select Farm Mastery Mode To farm", 
+    Description = "", 
     Default = false })
     Togglesword600mas:OnChanged(function(Value)
         sword600mas = Value
@@ -2162,7 +2163,7 @@ local ToggleClaim = Tabs.Main:AddToggle("ToggleClaim", {
 end)
 Options.ToggleClaim:SetValue(false)
 
-local Mastery = Tabs.Main:AddSection("Mastery Farm")
+--local Mastery = Tabs.Main:AddSection("Mastery Farm")
 
 local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
     Title = "Select Type Mastery Farm",
@@ -2206,7 +2207,7 @@ Dropdown:OnChanged(function(vSelectSkills)
             table.insert(RealSkillSelected, r)
         end
     end
-    Notify("XSea", "Skill " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
+    Notify("X-Sea", "Skill " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
 end)
 
 local ListHealth = {'20','25','30','35','40','45','50'}
@@ -2221,7 +2222,7 @@ Dropdown:OnChanged(function(Value)
     HealthStop = Value
 end)
 
-local Section = Tabs.Main:AddSection("Items")
+--local Section = Tabs.Main:AddSection("Items")
 
 local Toggle = Tabs.Main:AddToggle("Toggle", {
     Title = "Auto Kill Elite & Get Quest",
@@ -2675,7 +2676,7 @@ function AttackNoCoolDown()
     end
 end
 
-
+local Section = Tabs.Player:AddSection("Misc")
 
 local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "No Clip",Description = "", Default = false })
 ToggleNoClip:OnChanged(function(value)
@@ -2763,25 +2764,6 @@ function InfAb()
         end
     end
 end
-
-Tabs.M:AddButton({
-	Title = "Join Pirates Team",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
-	end
-})
-
-
-Tabs.Mi:AddButton({
-	Title = "Join Marines Team",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
-	end
-})
-
-
 local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "Pvp",Default = false })
 ToggleEnablePvp:OnChanged(function(Value)
   getgenv().EnabledPvP = Value
@@ -2800,7 +2782,7 @@ spawn(function()
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
 --RaceV4
-
+local Section = Tabs.Race:AddSection("Race V2-V3")
 
 local Toggle = Tabs.Race:AddToggle("Toggle", {
     Title = "Upgrade Race V2-V3s",
@@ -2867,7 +2849,7 @@ spawn(function()
                                 ToTween(Target.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                             end
                         else
-                            Notify("XSea", "Not Found Boss, Start Hop", 10)
+                            Notify("X-Sea", "Not Found Boss, Start Hop", 10)
                             HopServer()
                         end
                     elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress", "Bartilo") == 2 then
@@ -2905,7 +2887,7 @@ spawn(function()
                             RS.Remotes.CommF_:InvokeServer("Alchemist", "2")
                             if not LP.Backpack:FindFirstChild("Flower 1") and not LP.Character:FindFirstChild("Flower 1")then
                                 if WS.Flower1.Transparency ~= 1 then
-                                    Notify("XSea", "Collecting Flower 1", 10)
+                                    Notify("X-Sea", "Collecting Flower 1", 10)
                                     if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 1") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Flower 1") then
                                         ToTween(game:GetService("Workspace").Flower1.CFrame)
                                     else
@@ -2913,13 +2895,13 @@ spawn(function()
                                     end
                                 else
                                     if game.Lighting.ClockTime > 3 and game.Lighting.ClockTime < 16 then
-                                        Notify("XSea", "Hop Night", 10)
+                                        Notify("X-Sea", "Hop Night", 10)
                                         HopServer()
                                     end
                                 end
                             elseif not LP.Backpack:FindFirstChild("Flower 2") and not LP.Character:FindFirstChild("Flower 2") then
                                 if WS.Flower2.Transparency ~= 1 then
-                                    Notify("XSea", "Collecting Flower 2", 10)
+                                    Notify("X-Sea", "Collecting Flower 2", 10)
                                 end
                                 if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 2") and not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Flower 2") then
                                     ToTween(game:GetService("Workspace").Flower2.CFrame)
@@ -2927,7 +2909,7 @@ spawn(function()
                                     StopTween()
                                 end
                             elseif not LP.Backpack:FindFirstChild("Flower 3") and not LP.Character:FindFirstChild("Flower 3") then
-                                Notify("XSea", "Collecting Flower 3", 10)
+                                Notify("X-Sea", "Collecting Flower 3", 10)
                                 if Enemies:FindFirstChild("Zombie") then
                                     for i,v in pairs(Enemies:GetChildren()) do
                                         if v.Name == "Zombie" then
@@ -2965,9 +2947,9 @@ spawn(function()
                         for r, v in pairs(sk) do
                             sk2 = sk2 .. v .. ","
                         end
-                        Notify("Xsea", sk2, 15)
+                        Notify("X-Sea", sk2, 15)
                         if #sk < 3 and CheckVerRace() == "Human V2" then
-                            Notify("Xsea", "Hop Server Have 3 Boss", 15)
+                            Notify("X-Sea", "Hop Server Have 3 Boss", 15)
                             task.wait(1)
                             HopServer()
                         end
@@ -2975,7 +2957,7 @@ spawn(function()
                             for aq, cg in pairs(BossQuest) do
                                 Notify("Race: ", CheckVerRace())
                                 if cg and CheckVerRace() == "Human V2" then
-                                    Notify("Xsea", "Start Killing " .. aq .. " Boss To Up Human V3")
+                                    Notify("X-Sea", "Start Killing " .. aq .. " Boss To Up Human V3")
                                     Target = ReturnBosses(aq)
                                     repeat wait()
                                         if Target and Enemies:FindFirstChild(Target.Name) and Target:FindFirstChild("Humanoid") and Target:FindFirstChild("HumanoidRootPart") and Target.Humanoid.Health > 0 then
@@ -3013,7 +2995,7 @@ spawn(function()
                                 TargetedPlayer = nil
                             end
                         else
-                            Notify("Xsea", "Not Found Player, Start Hop", 15)
+                            Notify("X-Sea", "Not Found Player, Start Hop", 15)
                             HopServer()
                         end
                     elseif CheckR == "Fishman V2" then
@@ -3049,10 +3031,10 @@ spawn(function()
                         if ch and CheckR ~= "Mink V3" then
                             ToTween(ch)
                             CountChest = CountChest + 1
-                            Notify("SeaX", "Remaning " .. 30 - CountChest .. " Chest", 7.5)
+                            Notify("X-Sea", "Remaning " .. 30 - CountChest .. " Chest", 7.5)
                             if CountChest >= 30 then
                                 UpV3NoTween()
-                                Notify("xSea", "Race Status: " .. tostring(RS.Remotes.CommF_:InvokeServer("Wenlocktoad", "info")))
+                                Notify("X-Sea", "Race Status: " .. tostring(RS.Remotes.CommF_:InvokeServer("Wenlocktoad", "info")))
                             end
                         elseif ch == nil then
                             repeat wait()
@@ -3069,6 +3051,7 @@ spawn(function()
     end         
 end)
 
+local Section = Tabs.Race:AddSection("Race V4")
 
 local Toggle = Tabs.Race:AddToggle("Toggle", {
     Title = "Finish Trial Race",
@@ -3205,7 +3188,7 @@ spawn(function()
     end
 end)
 
---local Section = Tabs.Race:AddSection("Temple Of Time & Mirage Island")
+local Section = Tabs.Race:AddSection("Temple Of Time & Mirage Island")
 
 Tabs.Race:AddButton({
     Title = "Teleport Temple Of Time",
@@ -3304,10 +3287,10 @@ Loop:Connect(function()
     end
 end)
 
---local Section = Tabs.Race:AddSection("Kitsune Update")
+local Section = Tabs.kit:AddSection("Kitsune Update")
 
-local Toggle = Tabs.Kit:AddToggle("Toggle", {
-    Title = "Tween to Kitsune Island",
+local Toggle = Tabs.kit:AddToggle("Toggle", {
+    Title = "Tween to kitsune Island",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3339,8 +3322,8 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.Kit:AddToggle("Toggle", {
-    Title = "pick Azu Ember",
+local Toggle = Tabs.kit:AddToggle("Toggle", {
+    Title = "Farm Azure Amber",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3425,7 +3408,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Auto Farm Sea Events",
+    Title = "Auto Farm Sea Event",
     Description = "(One Click)", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3650,8 +3633,9 @@ spawn(function()
     end       
 end)
 
+local Section = Tabs.Race:AddSection("Low Health")
 
-local Slider = Tabs.Sea:AddSlider("Slider", {
+local Slider = Tabs.Race:AddSlider("Slider", {
 	Title = "Set Low Health",
 	Description = "",
 	Default = 4000,
@@ -3667,8 +3651,8 @@ Slider:OnChanged(function(Value)
 end)
 Slider:SetValue(4000)
 
-local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Low Hp To Hide (Sea Event)",
+local Toggle = Tabs.Race:AddToggle("Toggle", {
+    Title = "Low Health Y Tween",
     Description = "", 
     Default = true })
     Toggle:OnChanged(function(Value)
@@ -3676,10 +3660,10 @@ local Toggle = Tabs.Sea:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(true)
 
+local Section = Tabs.Race:AddSection("Spam Skill")
 
-
-local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Use Mele",
+local Toggle = Tabs.Race:AddToggle("Toggle", {
+    Title = "Spam Melee",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3687,8 +3671,8 @@ local Toggle = Tabs.Sea:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Using Sword",
+local Toggle = Tabs.Race:AddToggle("Toggle", {
+    Title = "Spam Sword",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3696,8 +3680,8 @@ local Toggle = Tabs.Sea:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Use Gun",
+local Toggle = Tabs.Race:AddToggle("Toggle", {
+    Title = "Spam Gun",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -3705,8 +3689,8 @@ local Toggle = Tabs.Sea:AddToggle("Toggle", {
 end)
 Options.Toggle:SetValue(false)
 
-local Toggle = Tabs.Sea:AddToggle("Toggle", {
-    Title = "Use Devil Fruit",
+local Toggle = Tabs.Race:AddToggle("Toggle", {
+    Title = "Spam Devil Fruit",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
@@ -4034,7 +4018,7 @@ spawn(function()
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
-
+local Teleport = Tabs.Teleport:AddSection("Teleport World")
 Tabs.Teleport:AddButton({
     Title = "First Sea",
     Description = "Sea 1",
