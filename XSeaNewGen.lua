@@ -6,14 +6,14 @@ local Window = Fluent:CreateWindow({
     Title = "X-Sea Hub",
     SubTitle = "Release (Beta)",
     TabWidth = 155,
-    Size = UDim2.fromOffset(490, 350),
+    Size = UDim2.fromOffset(500, 350),
     Acrylic = true,
-    Theme = "Light",
+    Theme = "Dark",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    Info = Window:AddTab({ Title =  "Sever Info", Icon = "" }),
+    Info = Window:AddTab({ Title = "Information Server", Icon = "" }),
     Sea = Window:AddTab({ Title = "Sea & Kitsune", Icon = "" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
     Player = Window:AddTab({ Title = "Players", Icon = "" }),
@@ -3011,7 +3011,7 @@ spawn(function()
         end
     end
 end)
---[[local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
+local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
     Title = "Farm Skips [Lv.1 -> Lv.300]",
     Description = "",
     Default = false })
@@ -3097,11 +3097,12 @@ spawn(function()
             end
         end
     end
-end) --]]
---local Weapon = Tabs.Main:AddSection("Weapon Farm")
+end) 
+
+--local Weapon = Tabs.Main:AddSection("")
 
 local DropdownSelectWeaponff = Tabs.Main:AddDropdown("DropdownSelectWeaponff", {
-    Title = "Select Type Farm",
+    Title = "mastery",
     Values = {"Cake Prince", "Bone"},
     Multi = false,
     Default = 1,
