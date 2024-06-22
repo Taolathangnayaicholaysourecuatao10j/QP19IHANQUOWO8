@@ -3012,7 +3012,7 @@ spawn(function()
     end
 end)
 local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
-    Title = "Farm Skips [Lv.1 -> Lv.300]",
+    Title = "Farm Fast [New]",
     Description = "",
     Default = false })
 ToggleSkipLevelQuest:OnChanged(function(Value)
