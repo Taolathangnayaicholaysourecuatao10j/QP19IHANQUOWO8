@@ -2303,6 +2303,13 @@ function BypassTele(PosSelect)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --Info Server
+
+local Owner = Tabs.Info:AddParagraph({
+    Title = "Owner: ThanhDuy🤯",
+    Content = "Developer: Tài😈 "
+})
+
+
 local StatusElite = Tabs.Info:AddParagraph({
     Title = "Elite Status",
     Content = "Status: "
@@ -2423,7 +2430,7 @@ local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
     Default = 1,
 })
 
-DropdownListAttack:SetValue("0.15")
+DropdownListAttack:SetValue("0.2")
 DropdownListAttack:OnChanged(function(Value)
     _G.FastAttackDelay = Value
 end)
@@ -2558,11 +2565,11 @@ spawn(function()
 	end)
 end)
 
-local BringMe= Tabs.Main:AddToggle("BringMe", {
+local BringMes = Tabs.Main:AddToggle("BringMes", {
     Title = "Bring Monster",
     Description = "",
     Default = true })
-BringMe:OnChanged(function(Mag)
+BringMes:OnChanged(function(Mag)
     _G.BringMonster = Mag
 end)
 
@@ -2617,35 +2624,37 @@ function InMyNetWork(object)
 end
 
 
--- local Settings2 = Tabs.Main:AddSection("Settings2")
-local Br = {"Low", "Normal", "High"}
-local DropDownBr = Tabs.Main:AddDropdown("DropDownBr", {
-    Title = "Select Bring Monster",
-    Values = Br,
+local Brings = {"Normal", "Low", "Super Bring"}
+local BringMasa = Tabs.Main:AddDropdown("BringMasa", {
+    Title = "Select Bring Mobs",
+    Values = Brings,
     Multi = false,
     Default = 1,
 })
 
-DropDownBr:SetValue("Normal")
-DropDownBr:OnChanged(function(value)
-    _G.BringMode = value
+BringMasaSetValue("Normal")
+BringMasa:OnChanged(function(Value)
+    _G.BringMode = Value
 end)
 
-    spawn(function()
-        while wait(.1) do
-            if _G.BringMode then
-                pcall(function()
-                    if _G.BringMode == "Low" then
-                        _G.BringMode = 350
-                    elseif _G.BringMode == "Normal" then
-                        _G.BringMode = 375
-                    elseif _G.BringMode == "High" then
-                        _G.BringMode = 450
-                    end
-                end)
-            end
+spawn(function()
+    while wait(.1) do
+        if _G.BringMode then
+            pcall(function()
+                if _G.BringMode == "Low" then
+                    _G.BringMode = 250
+                elseif _G.BringMode == "Normal" then
+                    _G.BringMode = 300
+                elseif _G.BringMode == "Super Bring" then
+                    _G.BringMode = 350
+                end
+            end)
         end
-    end)
+    end
+end)
+  
+
+ local Settings2 = Tabs.Main:AddSection("Settings2")
     
 
 local ToggleBTP = Tabs.Main:AddToggle("ToggleBTP", {
@@ -3099,7 +3108,7 @@ spawn(function()
     end
 end) 
 
---local Weapon = Tabs.Main:AddSection("")
+local Weapon = Tabs.Main:AddSection("1")
 
 local DropdownSelectWeaponff = Tabs.Main:AddDropdown("DropdownSelectWeaponff", {
     Title = "mastery",
@@ -3149,7 +3158,7 @@ spawn(function()
     end
 end)
 
---local Bones = Tabs.Main:AddSection("Options")
+local Bones = Tabs.Main:AddSection("2")
 
 local ToggleBOnes = Tabs.Main:AddToggle("ToggleBOnes", {
     Title = "Auto Random Bone Suprise",
@@ -3172,7 +3181,7 @@ local ToggleClaim = Tabs.Main:AddToggle("ToggleClaim", {
 end)
 Options.ToggleClaim:SetValue(false)
 
---local Mastery = Tabs.Main:AddSection("Mastery Farm")
+local Mastery = Tabs.Main:AddSection("3")
 
 local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
     Title = "Select Mastery Mode",
@@ -3231,7 +3240,7 @@ Dropdown:OnChanged(function(Value)
     HealthStop = Value
 end)
 
---local Section = Tabs.Main:AddSection("Items")
+local Section = Tabs.Main:AddSection("Sub")
 
 local Toggle = Tabs.Main:AddToggle("Toggle", {
     Title = "Auto Quest Elite",
