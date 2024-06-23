@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "X-Sea Hub - 30% Viesub ",
+    Title = "X-Sea Hub New [🌊] ",
     SubTitle = "Release Version",
     TabWidth = 155,
     Size = UDim2.fromOffset(500, 350),
@@ -2523,7 +2523,7 @@ end)
 
 local ToggleFastAttack = Tabs.Main:AddToggle("ToggleFastAttack", {
     Title = "Fast Attack",
-    Description = "Đánh Nhanh",
+    Description = "",
     Default = true })
 ToggleFastAttack:OnChanged(function(Value)
     _G.FastAttack = Value
@@ -2627,7 +2627,7 @@ Options.ToggleBTP:SetValue(false)
 
 local ToggleAutoHaki = Tabs.Main:AddToggle("ToggleAutoHaki", {
     Title = "No Clip",
-    Description = "Đi Xuyên Tường",
+    Description = "",
     Default = true })
 ToggleAutoHaki:OnChanged(function(Value)
     getgenv().LOf = Value
@@ -2649,7 +2649,7 @@ end)
 
 local ToggleAutoHaki = Tabs.Main:AddToggle("ToggleAutoHaki", {
     Title = "Auto Haki Buso",
-    Description = "Tự Động Haki Buso",
+    Description = "",
     Default = true })
 ToggleAutoHaki:OnChanged(function(Value)
     _G.AUTOHAKI = Value
@@ -2731,6 +2731,17 @@ game:GetService("RunService").RenderStepped:Connect(function()
         end
     end
 end)
+
+local News = Tabs.Main:AddParagraph({
+    Title = "Vui lòng đọc bên dưới để tránh lỗi",
+    Content = "Please read below to avoid errors "
+})
+
+
+local Vuilibgdoc = Tabs.Main:AddParagraph({
+    Title = "English: If it doesn't bring mobs, turn auto farm off and on again",
+    Content = "VietNam: Nếu nó không bring mob thì bạn sẽ Tắt bật lại start Farm"
+})
 
 local DropdownSelectFarm = Tabs.Main:AddDropdown("DropdownSelectFarm", {
     Title = "Mode Farming",
@@ -2980,8 +2991,8 @@ spawn(function()
     end
 end)
 local ToggleSkipLevelQuest = Tabs.Main:AddToggle("ToggleSkipLevelQuest", {
-    Title = "Auto Farm Fast",
-    Description = "There is a kill player ",
+    Title = "Auto Farm Fast level 1-300",
+    Description = "only Sea 1 for Sea 2 and 3 not enabled ",
     Default = false })
 ToggleSkipLevelQuest:OnChanged(function(Value)
     FarmSkip = Value
