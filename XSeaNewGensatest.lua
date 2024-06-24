@@ -17,6 +17,7 @@ local Tabs = {
     Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
     Player = Window:AddTab({ Title = "Players", Icon = "" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
+    Sub = Window:AddTab({ Title = "Sub Farming", Icon = "" }),
     Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
     Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
     Race = Window:AddTab({ Title = "Update Race", Icon = "" }),
