@@ -4,7 +4,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "X-Sea Hub New [🌊] ",
-    SubTitle = "Release Version",
+    SubTitle = "https://discord.com/invite/4JUGBP98",
     TabWidth = 155,
     Size = UDim2.fromOffset(500, 350),
     Acrylic = true,
