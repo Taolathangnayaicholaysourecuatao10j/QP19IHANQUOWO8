@@ -2414,6 +2414,16 @@ spawn(function()
     end)
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
+local DiscordMy = Tabs.Main:AddSection("Discord X-Sea")
+
+    Tabs.Main:AddButton({
+        Title = "reports Bug In My discord Click To copy Link",
+        Description = "báo cáo lỗi ở discord tôi",
+        Callback = function()
+            setclipboard("https://discord.com/invite/4JUGBP98")
+        end
+    })
+
 local Settings = Tabs.Main:AddSection("Settings")
 local v1f = {"0", "0.15", "0.175", "0.2", "0.05"}
 local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
