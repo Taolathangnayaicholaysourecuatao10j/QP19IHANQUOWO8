@@ -8,7 +8,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 155,
     Size = UDim2.fromOffset(500, 350),
     Acrylic = true,
-    Theme = "Dark",
+    Theme = "Light",
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
@@ -2415,7 +2415,7 @@ spawn(function()
 end)
 ----------------------------------------------------------------------------------------------------------------------------------------
 local Settings = Tabs.Main:AddSection("Settings")
-local v1f = {"0", "0.15", "0.175", "0.2"}
+local v1f = {"0", "0.15", "0.175", "0.2", "0.05"}
 local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
     Title = "Select Attack",
     Values = v1f,
@@ -2423,7 +2423,7 @@ local DropdownListAttack = Tabs.Main:AddDropdown("DropdownListAttack", {
     Default = 1,
 })
 
-DropdownListAttack:SetValue("0.175")
+DropdownListAttack:SetValue("0.05")
 DropdownListAttack:OnChanged(function(Value)
     _G.FastAttackDelay = Value
 end)
@@ -2433,6 +2433,8 @@ spawn(function()
             _G.FastAttackDelay = 0
         elseif _G.FastAttackDelay == "0.15" then
             _G.FastAttackDelay = 0.15
+        elseif _G.FastAttackDelay == "0.05" then
+            _G.FastAttackDelay = 0.05
         elseif _G.FastAttackDelay == "0.175" then
             _G.FastAttackDelay = 0.175
         elseif _G.FastAttackDelay == "0.2" then
@@ -3194,7 +3196,7 @@ Dropdown:OnChanged(function(vSelectSkills)
             table.insert(RealSkillSelected, r)
         end
     end
-    Notify("X-Sea", "Skill " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
+    Notify("X-Sea", " " .. tostring(vSelectSkills) .. ": " .. tostring(SkillSelected[vSelectSkills]) .. "")   
 end)
 
 local ListHealth = {'20','25','30','35','40','45','50'}
@@ -3268,7 +3270,7 @@ spawn(function()
 end)
 
 local Toggle = Tabs.Main:AddToggle("Toggle", {
-    Title = "Quest & Claim Saber",
+    Title = "Get Saber only sea 1",
     Description = "", 
     Default = false })
     Toggle:OnChanged(function(Value)
