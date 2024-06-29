@@ -2254,7 +2254,7 @@ setclipboard(tostring(game.JobId))
 })
 
 Tabs.Infor:AddParagraph({
-    Title = "Pree Tới Tháng 9 Sẽ Bán:))",
+    Title = "Min Gaming Version: Vip!",
     Content = ""
 })
 Tabs.Infor:AddParagraph({
