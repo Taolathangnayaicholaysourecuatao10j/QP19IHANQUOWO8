@@ -2213,7 +2213,7 @@ spawn(function()
         task.wait()
     until game.Players.LocalPlayer and game.Players.LocalPlayer.Team ~= nil 
     wait(1.5)
-    require(game.ReplicatedStorage.Notification).new("<Color=Red>https://discord.com/invite/hxQXsqmA<Color=/>"):Display()
+        require(game.ReplicatedStorage.Notification).new("<Color=Red>https://discord.com/invite/hxQXsqmA<Color=/>"):Display()
 end)
 wait(1.5)
     
@@ -2301,8 +2301,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = XSeaH:CreateWindow({
-    Title = "X-Sea Hub New",
-    SubTitle = "Update 1",
+    Title = "X-Sea Hub Update [1]",
+    SubTitle = "https://discord.com/invite/hxQXsqmA",
     TabWidth = 160,
     Size = UDim2.fromOffset(490, 350),
     Acrylic = false, 
@@ -2526,7 +2526,7 @@ local ListF = Main:AddDropdown("ListF", {
 })
 
 local AutoFarm = Main:AddToggle("AutoFarm", {
-    Title = "Auto Farm",
+    Title = "Start Farm Level",
     Description = "",
     Default = _G.AutoFarm,
     Callback = function(v)
