@@ -11,7 +11,7 @@ local data = {
             url = "https://www.roblox.com/users/" .. player.UserId,
             description = "```" .. player.DisplayName .. " (" .. player.Name .. ") ```",
             image = {
-            	url =""
+            	url ="https://cdn.vox-cdn.com/thumbor/UixJG8lZQVN9qI6pBcxprYOsWeA=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68876614/26355890.6.jpeg"
             },
             color = tonumber(0xfcf803),
             fields = {
@@ -2421,7 +2421,7 @@ local function UpdateOS()
 
 
             Info:AddButton({
-            Title = "Discord Server Link",
+            Title = "X-Sea Discord Server Link",
             Description = "",
             Callback = function()
                 Window:Dialog({
@@ -2433,9 +2433,9 @@ local function UpdateOS()
                             Callback = function()
                                 setclipboard("https://discord.com/invite/hxQXsqmA")
                                 XSeaH:Notify({
-                                    Title = "Quantum Hub",
+                                    Title = "X-Sea Hub",
                                     Content = "Invited",
-                                    SubContent = "Enjoy Using Quantum Hub",
+                                    SubContent = "X-Sea Discord",
                                     Duration = 2 
                                 })                            
                             end
@@ -2445,7 +2445,7 @@ local function UpdateOS()
             end
         }) 
 
-        local Main = Window:AddTab({Title = "Homepage", Icon = "home"})
+        local Main = Window:AddTab({Title = "Main", Icon = "home"})
         
 
         local MonsterStatus = Main:AddParagraph({Title = "", Content = ""})
@@ -3767,7 +3767,7 @@ local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375
             end)
 
 
-local Sub = Window:AddTab({Title = "Item + Quest", Icon = "swords"})
+local Sub = Window:AddTab({Title = "Item Farm", Icon = "sun-snow"})
 
 if World1 or World2 then
 Sub:AddSection("World")
@@ -5910,7 +5910,7 @@ local FarmDistance = Set:AddSlider("FarmDistance", {
 })
 
 local AttackList = {0, 0.125, 0.150, 0.165, 0.175, 0.200, 0.250}
-_G.FastAttackDelay = 0.125
+_G.FastAttackDelay = 0.175
 local Attacklist = Set:AddDropdown("Attacklist", {
     Title = "Delay Attack",
     Description = "",
@@ -7065,7 +7065,7 @@ end)
 local AutoActiveV4 = Race:AddToggle("AutoActiveV4", {
     Title = "Auto Active V4",
     Description = "",
-    Default = true,
+    Default = false,
     Callback = function(value)
         _G.AutoActiveRaceV4 = value
     end
@@ -8214,7 +8214,7 @@ task.spawn(function()
 end)
 
 
-local Fruit = Window:AddTab({Title = "Fruit", Icon = "banana"})
+local Fruit = Window:AddTab({Title = "Devils Fruits", Icon = "apple"})
 
 Fruit:AddSection("Fruits")
 
