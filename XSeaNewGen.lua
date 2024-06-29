@@ -3693,7 +3693,7 @@ local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375
 
             local AutoKIllCake = Main:AddToggle("AutoKillCake", {
                 Title = "Auto Kill Cake Prince",
-                Description = "",
+                Description = "Dough Boss V1",
                 Default = false,
                 Callback = function(value)
                     _G.AutoCakePrince = value
@@ -3732,7 +3732,7 @@ local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375
         
             local AutoDoughKing = Main:AddToggle("AutoDoughKing", {
                 Title = "Auto Kill Dough King",
-                Description = "",
+                Description = "Dough V2 ",
                 Default = false,
                 Callback = function (value)
                     _G.Autodoughking = value
@@ -5049,8 +5049,8 @@ spawn(function()
         while wait() do
             if _G.AutoObservation then
                 if game:GetService("Players").LocalPlayer.VisionRadius.Value >= 5000 then
-                    XRayHup:Notify({
-                        Title = "XRay Hub",
+                    XSeaH:Notify({
+                        Title = "X-Sea Hub",
                         Content = "You Have Max Points",
                         SubContent = "5000 Points in Total", 
                         Duration = 5
@@ -5169,7 +5169,7 @@ if World2 then
 
     local AutoGetDarkCoat = Sub:AddToggle("AutoGetDarkCoat", {
         Title = "Auto Dark Coat",
-        Description = "",
+        Description = "kill black beard",
         Default = false,
         Callback = function(value)
             _G.AutoDarkCoat = value
@@ -5226,7 +5226,7 @@ if World2 then
 
 local AutoPressHaki = Sub:AddToggle("AutoPressHaki", {
     Title = "Auto Press Haki",
-    Description = "",
+    Description = "open 3 haki Lengendary to spawn Rip_indra",
     Default = false,
     Callback = function(value)
         Open_Color_Haki = value
@@ -5260,7 +5260,7 @@ spawn(function()
     end
 end)
 local AutoKillRipIndra = Sub:AddToggle("AutoKillRipIndra", {
-    Title = "Auto Kill Rip_Indra ",
+    Title = "Auto Kill Rip_indra ",
     Description = "",
     Default = false,
     Callback = function(value)
@@ -6152,7 +6152,7 @@ end)
 
 local BypassTP = Set:AddToggle("BypassTP", {
     Title = "Bypass Teleport",
-    Description = "",
+    Description = "40% Errors",
     Default = false,
     Callback = function (value)
         BypassTP = value
@@ -8433,8 +8433,8 @@ spawn(function()
         if _G.FruitCheck then
             for i,v in pairs(game.Workspace:GetChildren()) do
                 if string.find(v.Name, "Fruit") then
-                    XRayHup:Notify({
-                        Title = "XRay Hub",
+                    XSeaH:Notify({
+                        Title = "X-Sea Hub",
                         Content = "Fruit Notification",
                         SubContent = "Fruit : "..v.Name, 
                         Duration = 5
