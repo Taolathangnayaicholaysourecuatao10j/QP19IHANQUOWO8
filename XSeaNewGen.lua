@@ -2301,7 +2301,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = XSeaH:CreateWindow({
-    Title = "X-Sea Hub Update [1]",
+    Title = "X-Sea Hub Update 1.25",
     SubTitle = "https://discord.com/invite/hxQXsqmA",
     TabWidth = 160,
     Size = UDim2.fromOffset(490, 350),
