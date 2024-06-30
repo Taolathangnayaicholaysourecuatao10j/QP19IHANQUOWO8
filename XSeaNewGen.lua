@@ -2313,7 +2313,7 @@ local Window = XSeaH:CreateWindow({
 local Options = XSeaH.Options
 
 
-local Info = Window:AddTab({Title = "Update Log", Icon = "crown"})
+local Info = Window:AddTab({Title = "• Update Log", Icon = "crown"})
 
 
 local Time = Info:AddParagraph({Title = "", Content = ""})
@@ -2431,7 +2431,7 @@ local function UpdateOS()
                         {
                             Title = "Discord Copy",
                             Callback = function()
-                                setclipboard("https://discord.com/invite/hxQXsqmA")
+                                setclipboard("https://discord.com/invite/XKwybaRf")
                                 XSeaH:Notify({
                                     Title = "X-Sea Hub",
                                     Content = "Invited",
@@ -2445,7 +2445,7 @@ local function UpdateOS()
             end
         }) 
 
-        local Main = Window:AddTab({Title = "Main", Icon = "home"})
+        local Main = Window:AddTab({Title = "• Main", Icon = "home"})
         
 
         local MonsterStatus = Main:AddParagraph({Title = "", Content = ""})
@@ -2466,7 +2466,7 @@ spawn(function()
   end
   end)
 
-        Main:AddSection("Farm Level")
+        Main:AddSection("Main")
         local WeaponList = {"Melee","Sword","Fruit"}
 _G.SelectWeapon = "Melee"
 local WeaponList = Main:AddDropdown("WeaponList", {
@@ -3767,7 +3767,7 @@ local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375
             end)
 
 
-local Sub = Window:AddTab({Title = "Item Farm", Icon = "sun-snow"})
+local Sub = Window:AddTab({Title = "Sub Item", Icon = "rocket"})
 
 if World1 or World2 then
 Sub:AddSection("World")
@@ -5775,7 +5775,7 @@ end
 
 
 
-local Stat = Window:AddTab({Title = "Player Stats", Icon = "user"})
+local Stat = Window:AddTab({Title = "• Stats Points", Icon = "layers-3"})
 
 local UserStat = Stat:AddParagraph({Title = "[ User ] : "..game.Players.LocalPlayer.DisplayName.."| Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value), 
 Content = "MELEE : "..game.Players.localPlayer.Data.Stats.Melee.Level.Value..
@@ -5890,7 +5890,7 @@ end)
 
 
 
-local Set = Window:AddTab({Title = "Settings", Icon = "settings"})
+local Set = Window:AddTab({Title = "• Config Farm", Icon = "settings"})
 
 Set:AddSection("Main Settings")
 
@@ -6372,7 +6372,7 @@ local KillAtHealth = Set:AddSlider("KillAtHealth", {
         end
     end)
 
-    local Sea = Window:AddTab({Title = "Sea Event", Icon = "sailboat"})
+    local Sea = Window:AddTab({Title = "• Sea Event", Icon = "sailboat"})
 
 
     Sea:AddSection("Mirage Island")
@@ -6541,7 +6541,7 @@ end)
 
 
 if World3 then
-local Race = Window:AddTab({Title = "Race", Icon = "webhook"})
+local Race = Window:AddTab({Title = "• Race", Icon = "webhook"})
 
 
 local RaceV2 = Race:AddToggle("RaceV2", {
@@ -7087,7 +7087,7 @@ end)
 end
 
 
-    local Raid = Window:AddTab({Title = "Raid", Icon = "trophy"})
+    local Raid = Window:AddTab({Title = "• Dungeon", Icon = "trophy"})
     
 
     Raid:AddSection("Dungeon")
@@ -7463,7 +7463,7 @@ spawn(
 )
 end
 
-local TP = Window:AddTab({Title = "Travel", Icon = "map-pin"})
+local TP = Window:AddTab({Title = "• Travel", Icon = "map-pin"})
 
 TP:AddSection("World")
 
@@ -8214,7 +8214,7 @@ task.spawn(function()
 end)
 
 
-local Fruit = Window:AddTab({Title = "Devils Fruits", Icon = "apple"})
+local Fruit = Window:AddTab({Title = "• Devils Fruits", Icon = "apple"})
 
 Fruit:AddSection("Fruits")
 
@@ -8551,7 +8551,7 @@ for _, fruitData in pairs(result) do
     end
 end
 
-local Misc = Window:AddTab({Title = "Misc", Icon = "puzzle"})
+local Misc = Window:AddTab({Title = "• Misc", Icon = "puzzle"})
 
 Misc:AddSection("Team")
 Misc:AddButton({
