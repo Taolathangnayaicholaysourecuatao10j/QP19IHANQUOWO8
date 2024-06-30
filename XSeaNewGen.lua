@@ -5895,7 +5895,7 @@ local Set = Window:AddTab({Title = "• Config Farm", Icon = "settings"})
 Set:AddSection("Main Settings")
 
 
-PosY = 35
+PosY = 25
 local FarmDistance = Set:AddSlider("FarmDistance", {
     Title = "Farm Distance",
     Description = "",
@@ -5917,9 +5917,9 @@ local Attacklist = Set:AddDropdown("Attacklist", {
     Values = AttackList,
     Multi = false,
     Default = _G.FastAttackDelay,
-    Callback = function (value)
+    Callback = function (v)
         
-        _G.FastAttackDelay = value
+        _G.FastAttackDelay = v
     end
 })
 
@@ -6022,7 +6022,7 @@ end
 end
 
 local Bring = {"Low", "Normal", "High"}
-_G.BringMode = "Normal"
+_G.BringMode = "High"
 local BringMode2 = Set:AddDropdown("BringMode2", {
     Title = "Select Bring Mode",
     Description = "",
@@ -7046,7 +7046,7 @@ local DisableInf = Race:AddToggle("DisableInf", {
 local AutoActiveV3 = Race:AddToggle("AutoActiveV3", {
     Title = "Auto Active V3",
     Description = "",
-    Default = true,
+    Default = false,
     Callback = function(value)
         _G.AutoAgility = value
     end
