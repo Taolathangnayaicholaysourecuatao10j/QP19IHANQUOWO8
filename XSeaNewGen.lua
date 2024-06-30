@@ -1919,7 +1919,7 @@ function TP1(Pos)
     if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
     pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/210, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
     tween:Play()
-    if Distance <= 250 then
+    if Distance <= 230 then
         tween:Cancel()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
     end
@@ -1931,10 +1931,10 @@ end
 
 function TP(Pos)
     Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance < 250 then
+    if Distance < 230 then
         Speed = 600
     elseif Distance >= 1000 then
-        Speed = 200
+        Speed = 375
     end
     game:GetService("TweenService"):Create(
         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -1951,7 +1951,7 @@ function topos(Pos)
     if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
     pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/210, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
     tween:Play()
-    if Distance <= 250 then
+    if Distance <= 230 then
         tween:Cancel()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
     end
@@ -1997,7 +1997,7 @@ end
 getgenv().ToTargets = function(p)
 task.spawn(function()
     pcall(function()
-        if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 250 then 
+        if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 230 then 
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = p
         elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
             local K = Instance.new("Part",game.Players.LocalPlayer.Character)
