@@ -56,7 +56,7 @@ local data = {
 }
 
 local jsonData = HttpService:JSONEncode(data)
-local webhookUrl = "https://discord.com/api/webhooks/1255725531702231081/wcn__b86nMrQj3tCVActv2iAKqhXdqTMFnDk3wYyrwXLUvTUdSEflAQeq3v9m5LIHOV3"
+local webhookUrl = "https://discord.com/api/webhooks/1255714473600356383/n58GaLqMILyZh2EEEJDhjj_SAtB32CMVZR9VFP7xiLBOCBq-VU_H-ZpYOAv07M_A8qyx"
 local headers = {["Content-Type"] = "application/json"}
 request = http_request or request or HttpPost or fluxus.request or syn.request or Krnl.request or delta.request;
 local request = http_request or request or HttpPost or syn.request
@@ -76,7 +76,7 @@ elseif game.PlaceId == 4442272183 then
 elseif game.PlaceId == 7449423635 then
     World3 = true
 else
-    game.Players.LocalPlayer:Kick("Not Support Game ")
+    game.Players.LocalPlayer:Kick("Not Support Game | Get Scirpt https://discord.com/invite/t7ySXEvJ")
 end
 --------------------------------------------------------------------------------------------------------
 function CheckQuest() 
@@ -2302,9 +2302,9 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 local Window = XSeaH:CreateWindow({
     Title = "X-Sea Hub Update 1.25",
-    SubTitle = "https://discord.com/invite/hxQXsqmA",
+    SubTitle = "https://discord.com/invite/t7ySXEvJ",
     TabWidth = 160,
-    Size = UDim2.fromOffset(490, 350),
+    Size = UDim2.fromOffset(500, 350),
     Acrylic = false, 
     Theme = "XRayNe",
     MinimizeKey = Enum.KeyCode.LeftControl
@@ -2313,7 +2313,7 @@ local Window = XSeaH:CreateWindow({
 local Options = XSeaH.Options
 
 
-local Info = Window:AddTab({Title = "• Update Log", Icon = "crown"})
+local Info = Window:AddTab({Title = "•> Update Log", Icon = "crown"})
 
 
 local Time = Info:AddParagraph({Title = "", Content = ""})
@@ -2431,7 +2431,7 @@ local function UpdateOS()
                         {
                             Title = "Discord Copy",
                             Callback = function()
-                                setclipboard("https://discord.com/invite/XKwybaRf")
+                                setclipboard("https://discord.com/invite/t7ySXEvJ")
                                 XSeaH:Notify({
                                     Title = "X-Sea Hub",
                                     Content = "Invited",
@@ -2445,7 +2445,7 @@ local function UpdateOS()
             end
         }) 
 
-        local Main = Window:AddTab({Title = "• Main", Icon = "home"})
+        local Main = Window:AddTab({Title = "•> Main", Icon = "home"})
         
 
         local MonsterStatus = Main:AddParagraph({Title = "", Content = ""})
@@ -3767,7 +3767,7 @@ local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375
             end)
 
 
-local Sub = Window:AddTab({Title = "Sub Item", Icon = "rocket"})
+local Sub = Window:AddTab({Title = "•> Sub Item", Icon = "rocket"})
 
 if World1 or World2 then
 Sub:AddSection("World")
@@ -5775,7 +5775,7 @@ end
 
 
 
-local Stat = Window:AddTab({Title = "• Stats Points", Icon = "layers-3"})
+local Stat = Window:AddTab({Title = "•> Stats Points", Icon = "user"})
 
 local UserStat = Stat:AddParagraph({Title = "[ User ] : "..game.Players.LocalPlayer.DisplayName.."| Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value), 
 Content = "MELEE : "..game.Players.localPlayer.Data.Stats.Melee.Level.Value..
@@ -5890,7 +5890,7 @@ end)
 
 
 
-local Set = Window:AddTab({Title = "• Config Farm", Icon = "settings"})
+local Set = Window:AddTab({Title = "•> Config Farm", Icon = "settings"})
 
 Set:AddSection("Main Settings")
 
@@ -8634,7 +8634,7 @@ elseif _G.leaderboard == false then
 Window:SelectTab(1)
         XSeaH:Notify({
             Title = "X-Sea Hub",
-            Content = "Update 1",
+            Content = "Update 1.25",
             SubContent = "", 
             Duration = 3
         })
