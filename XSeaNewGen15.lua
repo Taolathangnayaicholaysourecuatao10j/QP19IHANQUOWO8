@@ -6427,7 +6427,15 @@ Sea:AddButton({
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat",_G.SelectBoat)
     end
 })
-     
+    local ListSeaZone = {
+        "Zone1[Low]",
+        "Zone2[Medium]",
+        "Zone3[High]",
+        "Zone4[Extreme]",
+        "Zone5[Crazy]",
+        "Zone6",
+    }   
+      
 _G.SelectLocalTeleportSea = "Zone5[Crazy]"
 local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
     Title = "Select Zone Tp",
@@ -6445,9 +6453,9 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
     Title = "Auto Drive Boat",
     Description = "Auto Sail boat to sea",
     Default = false,
-    Callback = function(Value)
+    Callback = function (Value)
        _G.DomadicAutoDriveBoat = Value
-    StopTween(_G.DomadicAutoDriveBoat) 
+       StopTween(_G.DomadicAutoDriveBoat) 
     end
 })
 
