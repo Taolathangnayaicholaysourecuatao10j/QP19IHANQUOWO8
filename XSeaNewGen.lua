@@ -1,3 +1,4 @@
+--/ Người chơi của tôi:D
 local LocalizationService = game:GetService("LocalizationService")
 local player = game.Players.LocalPlayer
 local HttpService = game:GetService("HttpService")
@@ -2301,7 +2302,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = XSeaH:CreateWindow({
-    Title = "X-Sea Hub Update 1.5",
+    Title = "X-Sea Hub Update 1.55",
     SubTitle = "https://discord.com/invite/t7ySXEvJ",
     TabWidth = 160,
     Size = UDim2.fromOffset(500, 350),
@@ -9032,7 +9033,7 @@ elseif _G.leaderboard == false then
 Window:SelectTab(1)
         XSeaH:Notify({
             Title = "X-Sea Hub",
-            Content = "Update 1.5",
+            Content = "Update 1.55",
             SubContent = "", 
             Duration = 3
         })
