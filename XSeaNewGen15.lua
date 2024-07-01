@@ -6428,7 +6428,7 @@ Sea:AddButton({
     end
 })
      
-_G.SelectLocalTeleportSea = "Zone5[Crazy"
+_G.SelectLocalTeleportSea = "Zone5[Crazy]"
 local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
     Title = "Select Zone Tp",
     Description = "",
