@@ -6410,14 +6410,12 @@ spawn(function()
     end
 end)
 
-_G.SelectBoat = "PirateBrigade"
 local ListBoa = Sea:AddDropdown("ListBoa", {
     Title = "Select Boat",
     Description = "",
     Values = BoatList,
     Multi = false,
-    Default = _G.SelectBoat,
-    Callback = function (value)
+    Callback = function(value)
         SelectBoat = value
     end
 })
@@ -6520,9 +6518,7 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
                 end
             end
         end
-        
-        
-   
+           
 
 spawn(function()
 		pcall(function()
