@@ -6450,7 +6450,6 @@ local AutoLaiThuyen = Sea:AddToggle("AutoLaiThuyen", {
     Callback = function (state)
         _G.SailBoat = state
         StopTween(_G.SailBoat)
-          stopboat:Stop()
     end
 })
     
