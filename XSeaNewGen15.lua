@@ -6375,39 +6375,61 @@ local KillAtHealth = Set:AddSlider("KillAtHealth", {
 
     local Sea = Window:AddTab({Title = "• Sea Event", Icon = "sailboat"})
 
-    local ListSeaBoat = {
-        "Guardian",
-        "PirateGrandBrigade",
-        "MarineGrandBrigade",
-        "PirateBrigade",
-        "MarineBrigade",
-        "PirateSloop",
-        "MarineSloop",
-        "BeastHunter",
-    }
+ BoatList = {
+    "Pirate Sloop",
+    "Enforcer",
+    "Rocket Boost",
+    "Dinghy",
+    "Pirate Basic",
+    "Pirate Brigade"
+}
 
-_G.SelectedBoat = "PirateBrigade"
-local ListSeaBoat = Sea:AddDropdown("ListSeaBoat", {
-    Title = "Select Boat ",
+spawn(function()
+    while wait() do
+        pcall(function()
+            if SelectBoat == "Pirate Sloop" then
+                _G.SelectBoat = "PirateSloop"
+            else
+                if SelectBoat == "Enforcer" then
+                    _G.SelectBoat = "Enforcer"
+                else
+                    if SelectBoat == "RocketBoost" then
+                        _G.SelectBoat = "RocketBoost"
+                    else
+                        if SelectBoat == "PirateBasic" then
+                            _G.SelectBoat = "PirateBasic"
+                        else
+                            if SelectBoat == "Pirate Brigade" then
+                                _G.SelectBoat = "PirateBrigade"
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+_G.SelectBoat = "PirateBrigade"
+local ListBoa = Sea:AddDropdown("ListBoa", {
+    Title = "Select Boat",
     Description = "",
-    Values = ListSeaBoat,
+    Values = BoatList,
     Multi = false,
-    Default = _G.SelectedBoat,
-    Callback = function (x)
-        _G.SelectedBoat = x
+    Default = _G.SelectBoat,
+    Callback = function (value)
+        SelectBoat = value
     end
 })
 
-    local ListSeaZone = {
-        "Zone1[Low]",
-        "Zone2[Medium]",
-        "Zone3[High]",
-        "Zone4[Extreme]",
-        "Zone5[Crazy]",
-        "Zone6[?]",
-        "Infinite",
-    }
-      
+Sea:AddButton({
+    Title = "Buy Boat",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat",_G.SelectBoat)
+    end
+})
+     
 _G.SelectLocalTeleportSea = "Zone5[Crazy"
 local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
     Title = "Select Zone Tp",
@@ -6423,7 +6445,7 @@ local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
 
 local AutoLaiS = Sea:AddToggle("AutoLais", {
     Title = "Auto Drive Boat",
-    Description = "",
+    Description = "Auto Sail boat to sea",
     Default = false,
     Callback = function(Value)
        _G.DomadicAutoDriveBoat = Value
@@ -6442,7 +6464,7 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
                                 if buyb then buyb:Stop() end
                                 local args = {
                                     [1] = "BuyBoat",
-                                    [2] = "PirateBrigade"
+                                    [2] = SelectBoat
                                 }
     
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
@@ -6464,11 +6486,9 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
 			                        			TPB(CFrame.new(-32654.7188, -0.3221744, 4788.14697, -0.183276221, 2.0033232e-08, 0.983061433, 3.66669433e-08, 1, -1.35424418e-08, -0.983061433, 3.35638504e-08, -0.183276221) * BoatFrameNew)
 	                            			elseif _G.SelectLocalTeleportSea == "Zone5[Crazy]" then
 					                        	TPB(CFrame.new(-37813.6953, -0.3221744, 6105.16895, -0.252362996, 4.13621581e-09, 0.967632651, 2.87320709e-08, 1, 3.21888249e-09, -0.967632651, 2.86144175e-08, -0.252362996) * BoatFrameNew)
-			                            	elseif _G.SelectLocalTeleportSea == "Zone6[?]" then
+			                            	elseif _G.SelectLocalTeleportSea == "Zone6" then
 					                        	TPB(CFrame.new(-42250.2227, -0.3221744, 9247.07715, -0.45916447, 6.39043236e-08, 0.888351262, -3.36711423e-08, 1, -8.93395651e-08, -0.888351262, -7.09333605e-08, -0.45916447) * BoatFrameNew)
-					                        elseif _G.SelectLocalTeleportSea == "Infinite" then
-					                             TPB(CFrame.new(-148073.359, 8.99999523, 7721.05078, -0.0825930536, -1.54416148e-06, 0.996583343, -1.8696026e-05, 1, -3.91858095e-13, -0.996583343, -1.86321486e-05, -0.0825930536) * BoatFrameNew)
-                                            end 
+					                        end
                                         until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or workspace.Enemies:FindFirstChild("PirateBrigade") or workspace.Enemies:FindFirstChild("PirateGrandBrigade") or workspace.Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or _G.DomadicAutoDriveBoat == false
                                     end
                                 end
