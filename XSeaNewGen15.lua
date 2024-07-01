@@ -6442,7 +6442,7 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
                                 if buyb then buyb:Stop() end
                                 local args = {
                                     [1] = "BuyBoat",
-                                    [2] = SelectBoat
+                                    [2] = "PirateBrigade"
                                 }
     
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
@@ -6502,7 +6502,7 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
         end
         
         
-    
+   
 
 spawn(function()
 		pcall(function()
