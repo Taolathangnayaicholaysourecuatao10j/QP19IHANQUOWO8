@@ -6450,9 +6450,9 @@ local AutoLaiThuyen = Sea:AddToggle("AutoLaiThuyen", {
     Callback = function (Value)
         _G.SailBoat = Value
         StopTween(_G.SailBoat)
-        stopboat:DungLaiDi()
-    end)
-}
+        stopboat:stop()
+    end
+})
     
 function CheckBoat()
     for i, v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
