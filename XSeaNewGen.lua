@@ -2301,7 +2301,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = XSeaH:CreateWindow({
-    Title = "X-Sea Hub Update 1.25",
+    Title = "X-Sea Hub Update 1.3",
     SubTitle = "https://discord.com/invite/t7ySXEvJ",
     TabWidth = 160,
     Size = UDim2.fromOffset(500, 350),
@@ -6374,7 +6374,127 @@ local KillAtHealth = Set:AddSlider("KillAtHealth", {
 
     local Sea = Window:AddTab({Title = "• Sea Event", Icon = "sailboat"})
 
+    local ListSeaBoat = {
+        "Guardian",
+        "PirateGrandBrigade",
+        "MarineGrandBrigade",
+        "PirateBrigade",
+        "MarineBrigade",
+        "PirateSloop",
+        "MarineSloop",
+        "BeastHunter",
+    }
 
+_G.SelectedBoat = "Guardian"
+local ListSeaBoat = Sea:AddDropdown("ListSeaBoat", {
+    Title = "Select Boat |",
+    Description = "",
+    Values = ListSeaBoat,
+    Multi = false,
+    Default = _G.SelectedBoat,
+    Callback = function (x)
+        _G.SelectedBoat = x
+    end
+})
+
+    local ListSeaZone = {
+        "Zone 1",
+        "Zone 2",
+        "Zone 3",
+        "Zone 4",
+        "Zone 5",
+        "Zone 6",
+        "Infinite"
+    }
+      
+_G.SelectedZone = "Zone 5"
+local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
+    Title = "Select Zone Tp",
+    Description = "",
+    Values = ListSeaZone,
+    Multi = false,
+    Default = _G.SelectedZone,
+    Callback = function (x)
+        _G.SelectedZone = x
+    end
+})
+
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.SelectedZone == "Zone 1" then
+                    CFrameSelectedZone = CFrame.new(-21998.375, 30.0006084, -682.309143, 0.120013528, 0.00690158736, 0.99274826, -0.0574118942, 0.998350561, -2.36509201e-10, -0.991110802, -0.0569955558, 0.120211802)
+                elseif _G.SelectedZone == "Zone 2" then
+                    CFrameSelectedZone = CFrame.new(-26779.5215, 30.0005474, -822.858032, 0.307457417, 0.019647358, 0.951358974, -0.0637726262, 0.997964442, -4.15334017e-10, -0.949422479, -0.0606706589, 0.308084518)
+                elseif _G.SelectedZone == "Zone 3" then
+                    CFrameSelectedZone = CFrame.new(-31171.957, 30.0001011, -2256.93774, 0.37637493, 0.0150483791, 0.926345229, -0.0399504974, 0.999201655, 2.70896673e-11, -0.925605655, -0.0370079502, 0.376675636)
+                elseif _G.SelectedZone == "Zone 4" then
+                    CFrameSelectedZone = CFrame.new(-34054.6875, 30.2187767, -2560.12012, 0.0935864747, -0.00122954219, 0.995610416, 0.0624034069, 0.998040259, -0.00463332096, -0.993653536, 0.062563099, 0.0934797972)
+                elseif _G.SelectedZone == "Zone 5" then
+                    CFrameSelectedZone = CFrame.new(-38887.5547, 30.0004578, -2162.99023, -0.188895494, -0.00704088295, 0.981971979, -0.0372481011, 0.999306023, -1.39882339e-09, -0.981290519, -0.0365765914, -0.189026669)
+                elseif _G.SelectedZone == "Zone 6" then
+                    CFrameSelectedZone = CFrame.new(-44541.7617, 30.0003204, -1244.8584, -0.0844199061, -0.00553312758, 0.9964149, -0.0654025897, 0.997858942, 2.02319411e-10, -0.99428153, -0.0651681125, -0.0846010372)
+                elseif _G.SelectedZone == "Infinite" then
+                    CFrameSelectedZone = CFrame.new(-148073.359, 8.99999523, 7721.05078, -0.0825930536, -1.54416148e-06, 0.996583343, -1.8696026e-05, 1, -3.91858095e-13, -0.996583343, -1.86321486e-05, -0.0825930536)
+                end
+            end
+        end)
+    end)
+  
+      
+local AutoGietLe = Sea:AddToggle("AutoGietLe", {
+    Title = "Auto Leviathan",
+    Description = "Aim Bot blabla",
+    Default = false,
+    Callback = function(Value)
+      _G.AutoLeviathanHaha = Value
+      StopTween(_G.AutoLeviathanHaha)  
+    end
+})
+    
+spawn(function()
+        while wait() do
+            if  _G.AutoLeviathanHaha and World3 then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Leviathan") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Leviathan" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                               
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        PosSucVat = v.HumanoidRootPart.CFrame
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                      topos(v.HumanoidRootPart.CFrame * Pos)
+                                        UseSkill = true
+                        Skillaimbot = true
+                        AimBotSkillPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                                        
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not  _G.Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
+                                    UseSkill = false
+                    Skillaimbot = false
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Leviathan") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Leviathan").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if  _G.AutoLeviathanHopcuc then
+                                Hop()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+-----//
     Sea:AddSection("Mirage Island")
     Mirragecheck = Sea:AddParagraph({Title = "", Content = ""})
     spawn(function()
@@ -8634,7 +8754,7 @@ elseif _G.leaderboard == false then
 Window:SelectTab(1)
         XSeaH:Notify({
             Title = "X-Sea Hub",
-            Content = "Update 1.25",
+            Content = "Update 1.3",
             SubContent = "", 
             Duration = 3
         })
