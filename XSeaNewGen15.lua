@@ -6386,9 +6386,9 @@ local KillAtHealth = Set:AddSlider("KillAtHealth", {
         "BeastHunter",
     }
 
-_G.SelectedBoat = "Guardian"
+_G.SelectedBoat = "PirateBrigade"
 local ListSeaBoat = Sea:AddDropdown("ListSeaBoat", {
-    Title = "Select Boat |",
+    Title = "Select Boat ",
     Description = "",
     Values = ListSeaBoat,
     Multi = false,
@@ -6399,50 +6399,28 @@ local ListSeaBoat = Sea:AddDropdown("ListSeaBoat", {
 })
 
     local ListSeaZone = {
-        "Zone 1",
-        "Zone 2",
-        "Zone 3",
-        "Zone 4",
-        "Zone 5",
-        "Zone 6",
-        "Infinite"
+        "Zone1[Low]",
+        "Zone2[Medium]",
+        "Zone3[High]",
+        "Zone4[Extreme]",
+        "Zone5[Crazy]",
+        "Zone6[?]",
+        "Infinite",
     }
       
-_G.SelectedZone = "Zone 5"
+_G.SelectLocalTeleportSea = "Zone5[Crazy"
 local ListSeaZone = Sea:AddDropdown("ListSeaZone", {
     Title = "Select Zone Tp",
     Description = "",
     Values = ListSeaZone,
     Multi = false,
-    Default = _G.SelectedZone,
-    Callback = function (x)
-        _G.SelectedZone = x
+    Default = _G.SelectLocalTeleportSea,
+    Callback = function (value)
+        _G.SelectLocalTeleportSea = value
     end
 })
 
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.SelectedZone == "Zone 1" then
-                    CFrameSelectedZone = CFrame.new(-21998.375, 30.0006084, -682.309143, 0.120013528, 0.00690158736, 0.99274826, -0.0574118942, 0.998350561, -2.36509201e-10, -0.991110802, -0.0569955558, 0.120211802)
-                elseif _G.SelectedZone == "Zone 2" then
-                    CFrameSelectedZone = CFrame.new(-26779.5215, 30.0005474, -822.858032, 0.307457417, 0.019647358, 0.951358974, -0.0637726262, 0.997964442, -4.15334017e-10, -0.949422479, -0.0606706589, 0.308084518)
-                elseif _G.SelectedZone == "Zone 3" then
-                    CFrameSelectedZone = CFrame.new(-31171.957, 30.0001011, -2256.93774, 0.37637493, 0.0150483791, 0.926345229, -0.0399504974, 0.999201655, 2.70896673e-11, -0.925605655, -0.0370079502, 0.376675636)
-                elseif _G.SelectedZone == "Zone 4" then
-                    CFrameSelectedZone = CFrame.new(-34054.6875, 30.2187767, -2560.12012, 0.0935864747, -0.00122954219, 0.995610416, 0.0624034069, 0.998040259, -0.00463332096, -0.993653536, 0.062563099, 0.0934797972)
-                elseif _G.SelectedZone == "Zone 5" then
-                    CFrameSelectedZone = CFrame.new(-38887.5547, 30.0004578, -2162.99023, -0.188895494, -0.00704088295, 0.981971979, -0.0372481011, 0.999306023, -1.39882339e-09, -0.981290519, -0.0365765914, -0.189026669)
-                elseif _G.SelectedZone == "Zone 6" then
-                    CFrameSelectedZone = CFrame.new(-44541.7617, 30.0003204, -1244.8584, -0.0844199061, -0.00553312758, 0.9964149, -0.0654025897, 0.997858942, 2.02319411e-10, -0.99428153, -0.0651681125, -0.0846010372)
-                elseif _G.SelectedZone == "Infinite" then
-                    CFrameSelectedZone = CFrame.new(-148073.359, 8.99999523, 7721.05078, -0.0825930536, -1.54416148e-06, 0.996583343, -1.8696026e-05, 1, -3.91858095e-13, -0.996583343, -1.86321486e-05, -0.0825930536)
-                end
-            end
-        end)
-    end)
 
- 
 local AutoLaiS = Sea:AddToggle("AutoLais", {
     Title = "Auto Drive Boat",
     Description = "",
@@ -6453,33 +6431,45 @@ local AutoLaiS = Sea:AddToggle("AutoLais", {
     end
 })
 
-spawn(function()
+    spawn(function()
         while wait() do
             pcall(function()
                 if _G.DomadicAutoDriveBoat then
-                    if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-                        if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
+                    if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or not CheckPirateBoat() or not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
+                        if not game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
                             buyb = TPP(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
                             if (CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                 if buyb then buyb:Stop() end
                                 local args = {
                                     [1] = "BuyBoat",
-                                    [2] = "PirateBrigade"
+                                    [2] = SelectBoat
                                 }
     
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                             end
-                        elseif game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
+                        elseif game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
                             if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                TPP(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                                TPP(game:GetService("Workspace").Boats[SelectBoat].VehicleSeat.CFrame * CFrame.new(0,1,0))
                             else
                                 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                                    if v.Name == "PirateBrigade" then
+                                    if v.Name == SelectBoat then
                                         repeat wait()
-                                            
-                                                TPB(CFrame.new(-44313.5859, 7.15863419, 4728.25732, 0.997174919, -0.0686116666, -0.030571226, 0.068627812, 0.997642219, -0.000521970622, 0.0305349566, -0.00157754042, 0.999532461))
-                                            
-                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or _G.DomadicAutoDriveBoat == false
+                                            if _G.SelectLocalTeleportSea == "Zone1[Low]" then
+				                        		TPB(CFrame.new(-22526.0098, -0.3221744, 1716.89185, -0.210707203, 1.100981e-07, 0.977549195, 2.74631451e-09, 1, -1.12034698e-07, -0.977549195, -2.09218598e-08, -0.210707203) * BoatFrameNew)
+			                            	elseif _G.SelectLocalTeleportSea == "Zone2[Medium]" then
+					                        	TPB(CFrame.new(-25645.3535, -0.3221744, 2554.41016, -0.334876329, -5.05522451e-08, 0.942262113, -3.13346469e-08, 1, 4.25136619e-08, -0.942262113, -1.52886308e-08, -0.334876329) * BoatFrameNew)
+			                            	elseif _G.SelectLocalTeleportSea == "Zone3[High]" then
+				                        		TPB(CFrame.new(-29842.2227, -0.3221744, 4070.85767, -0.270609587, 3.60968606e-08, 0.962689161, -4.47193429e-08, 1, -5.00663617e-08, -0.962689161, -5.65992657e-08, -0.270609587) * BoatFrameNew)
+		                            		elseif _G.SelectLocalTeleportSea == "Zone4[Extreme]" then
+			                        			TPB(CFrame.new(-32654.7188, -0.3221744, 4788.14697, -0.183276221, 2.0033232e-08, 0.983061433, 3.66669433e-08, 1, -1.35424418e-08, -0.983061433, 3.35638504e-08, -0.183276221) * BoatFrameNew)
+	                            			elseif _G.SelectLocalTeleportSea == "Zone5[Crazy]" then
+					                        	TPB(CFrame.new(-37813.6953, -0.3221744, 6105.16895, -0.252362996, 4.13621581e-09, 0.967632651, 2.87320709e-08, 1, 3.21888249e-09, -0.967632651, 2.86144175e-08, -0.252362996) * BoatFrameNew)
+			                            	elseif _G.SelectLocalTeleportSea == "Zone6[?]" then
+					                        	TPB(CFrame.new(-42250.2227, -0.3221744, 9247.07715, -0.45916447, 6.39043236e-08, 0.888351262, -3.36711423e-08, 1, -8.93395651e-08, -0.888351262, -7.09333605e-08, -0.45916447) * BoatFrameNew)
+					                        elseif _G.SelectLocalTeleportSea == "Infinite" then
+					                             TPB(CFrame.new(-148073.359, 8.99999523, 7721.05078, -0.0825930536, -1.54416148e-06, 0.996583343, -1.8696026e-05, 1, -3.91858095e-13, -0.996583343, -1.86321486e-05, -0.0825930536) * BoatFrameNew)
+                                            end 
+                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or workspace.Enemies:FindFirstChild("PirateBrigade") or workspace.Enemies:FindFirstChild("PirateGrandBrigade") or workspace.Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or _G.DomadicAutoDriveBoat == false
                                     end
                                 end
                             end
@@ -6490,7 +6480,28 @@ spawn(function()
         end
     end)
     
-    
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.DomadicAutoDriveBoat then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or CheckPirateBoat() or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
+					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+					end
+				end
+			end
+		end)
+	end)
+	
+	function CheckPirateBoat()
+            local checkmmpb = {"PirateGrandBrigade", "PirateBrigade", "FishBoat"}
+            for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
+                if table.find(checkmmpb, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                    return v
+                end
+            end
+        end
+        
+        
     
 
 spawn(function()
@@ -6504,7 +6515,7 @@ spawn(function()
 			end
 		end)
 	end)
-	   
+--// new	   
 local AutoWw = Sea:AddToggle("AutoWw", {
     Title = "Auto Drive W",
     Description = "",
@@ -6632,7 +6643,7 @@ spawn(function()
     end)
     
     local AutoGietLe2 = Sea:AddToggle("AutoGietLe2", {
-    Title = "Auto Kill Terror Sharks",
+    Title = "Auto Kill Terror Shark",
     Description = "",
     Default = false,
     Callback = function(Value)
