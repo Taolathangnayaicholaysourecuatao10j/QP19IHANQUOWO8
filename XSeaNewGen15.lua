@@ -6447,10 +6447,10 @@ local AutoLaiThuyen = Sea:AddToggle("AutoLaiThuyen", {
     Title = "Auto Sail Boat",
     Description = "",
     Default = false,
-    Callback = function (Value)
-        _G.SailBoat = Value
+    Callback = function(state)
+        _G.SailBoat = state
         StopTween(_G.SailBoat)
-        stopboat:stop()
+        Stopboat:Stop()
     end
 })
     
@@ -6490,8 +6490,7 @@ function AddEsp(Name, Parent)
     TextLabel.TextSize = 15
     TextLabel.Text = "MyBoat"
 end
-    
-    
+        
     spawn(function()
         while wait() do
             pcall(function()
